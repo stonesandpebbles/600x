@@ -1,0 +1,2195 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./pset10-3_files/www-widgetapi-vflSBkLNo.js" async=""></script><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script>
+  <title>6.00x Courseware</title>
+
+  <link rel="icon" type="image/x-icon" href="https://www.edx.org/static/images/favicon.c074c912999f.ico">
+
+  
+    <link href="./pset10-3_files/lms-application.417a82465e4d.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+    <script type="text/javascript" src="./pset10-3_files/lms-main_vendor.6e8783181113.js" charset="utf-8"></script>
+
+
+  
+  
+    <link href="./pset10-3_files/lms-course.690a59f2dd3a.css" rel="stylesheet" type="text/css">
+
+
+
+  
+
+<script type="text/javascript" src="./pset10-3_files/split.1e256a271150.js"></script>
+<script type="text/javascript" src="./pset10-3_files/jquery.ajaxfileupload.27e7569a4c1e.js"></script>
+<script type="text/javascript" src="./pset10-3_files/Markdown.Converter.33f02cbe2eb8.js"></script>
+<script type="text/javascript" src="./pset10-3_files/Markdown.Sanitizer.253c591d1f95.js"></script>
+<script type="text/javascript" src="./pset10-3_files/Markdown.Editor.520c378977e6.js"></script>
+<script type="text/javascript" src="./pset10-3_files/jquery.autocomplete.3bd10d7510d2.js"></script>
+<script type="text/javascript" src="./pset10-3_files/jquery.timeago.fc0094b4cea5.js"></script>
+<script type="text/javascript" src="./pset10-3_files/jquery.tagsinput.23f60d366109.js"></script>
+<script type="text/javascript" src="./pset10-3_files/mustache.2aa68bb79181.js"></script>
+<script type="text/javascript" src="./pset10-3_files/URI.min.04561329ae1d.js"></script>
+<script type="text/javascript" src="./pset10-3_files/underscore-min.45635c865859.js"></script>
+<script type="text/javascript" src="./pset10-3_files/backbone-min.d4d2a80cd8fc.js"></script>
+
+<link href="./pset10-3_files/jquery.tagsinput.bb7a7ef62915.css" rel="stylesheet" type="text/css">
+<link href="./pset10-3_files/jquery.autocomplete.09a0b34739a2.css" rel="stylesheet" type="text/css">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="/static/js/html5shiv.d5e37d8ee1a4.js"></script>
+  <![endif]-->
+
+  <!--[if lte IE 9]>
+  
+    <link href="/static/css/lms-ie.639232e978fc.css" rel="stylesheet" type="text/css" />
+
+
+
+  <![endif]-->
+  <meta name="path_prefix" content="">
+  <meta name="google-site-verification" content="_mipQ4AtZQDNmbtOkwehQDOgCxUUV2fb_C0b6wbiRHY">
+
+
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -1px -1px 1px -1px; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">DIV.MathJax_MathML {text-align: center; margin: .75em 0px}
+.MathJax_mmlExBox {display: block; overflow: hidden; height: 1px; width: 60ex; padding: 0; border: 0; margin: 0}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; border: 0; padding: 0; margin: 0}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0 !important; padding: 0 !important; margin: 0 !important; vertical-align: 0 !important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap ! important}
+.MathJax img {display: inline ! important; float: none ! important}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block; overflow: hidden; width: 1px; height: 60ex}
+.MathJax .MathJax_EmBox {display: block; overflow: hidden; width: 1px; height: 60em}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('https://edx-static.s3.amazonaws.com/mathjax-MathJax-07669ac/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff') format('woff'), url('https://edx-static.s3.amazonaws.com/mathjax-MathJax-07669ac/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf') format('opentype')}
+@font-face {font-family: MathJax_Main; src: url('https://edx-static.s3.amazonaws.com/mathjax-MathJax-07669ac/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff') format('woff'), url('https://edx-static.s3.amazonaws.com/mathjax-MathJax-07669ac/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf') format('opentype'); font-weight: bold}
+@font-face {font-family: MathJax_Main; src: url('https://edx-static.s3.amazonaws.com/mathjax-MathJax-07669ac/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff') format('woff'), url('https://edx-static.s3.amazonaws.com/mathjax-MathJax-07669ac/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf') format('opentype'); font-style: italic}
+@font-face {font-family: MathJax_Math; src: url('https://edx-static.s3.amazonaws.com/mathjax-MathJax-07669ac/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff') format('woff'), url('https://edx-static.s3.amazonaws.com/mathjax-MathJax-07669ac/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf') format('opentype'); font-style: italic}
+@font-face {font-family: MathJax_Caligraphic; src: url('https://edx-static.s3.amazonaws.com/mathjax-MathJax-07669ac/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff') format('woff'), url('https://edx-static.s3.amazonaws.com/mathjax-MathJax-07669ac/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('https://edx-static.s3.amazonaws.com/mathjax-MathJax-07669ac/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff') format('woff'), url('https://edx-static.s3.amazonaws.com/mathjax-MathJax-07669ac/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('https://edx-static.s3.amazonaws.com/mathjax-MathJax-07669ac/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff') format('woff'), url('https://edx-static.s3.amazonaws.com/mathjax-MathJax-07669ac/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('https://edx-static.s3.amazonaws.com/mathjax-MathJax-07669ac/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff') format('woff'), url('https://edx-static.s3.amazonaws.com/mathjax-MathJax-07669ac/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('https://edx-static.s3.amazonaws.com/mathjax-MathJax-07669ac/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff') format('woff'), url('https://edx-static.s3.amazonaws.com/mathjax-MathJax-07669ac/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf') format('opentype')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body class="courseware " style="-webkit-user-select: auto;"><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+
+  
+
+
+
+
+
+
+
+  <header class="global slim" aria-label="Global Navigation">
+  <nav>
+  <h1 class="logo"><a href="https://www.edx.org/"><img src="./pset10-3_files/header-logo.png"></a></h1>
+
+      <h2><span class="provider">MITx:</span> 6.00x Introduction to Computer Science and Programming</h2>
+
+    <ol class="left find-courses-button">
+      <li class="primary">
+        <a href="https://www.edx.org/courses">Find Courses</a>
+      </li>
+    </ol>
+
+    <ol class="user">
+      <li class="primary">
+        <a href="https://www.edx.org/dashboard" class="user-link">
+          <span class="avatar"></span>
+          intuitius
+        </a>
+      </li>
+      <li class="primary">
+        <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#" class="dropdown">▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="https://www.edx.org/help">Help</a></li>
+          <li><a href="https://www.edx.org/logout">Log Out</a></li>
+        </ul>
+      </li>
+    </ol>
+
+  </nav>
+</header>
+<div class="ie-banner"><strong>Warning:</strong> Your browser is not fully supported. We strongly recommend using <a href="https://www.google.com/intl/en/chrome/browser/" target="_blank">Chrome</a> or <a href="http://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>.</div>
+
+
+  <section class="content-wrapper">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="courseware course-material">
+  <div class="inner-wrapper">
+    <ol class="course-tabs">
+          <li>
+             <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware" class="active">
+                 Courseware
+             </a>
+          </li>
+          <li>
+             <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/info" class="">
+                 Course Info
+             </a>
+          </li>
+          <li>
+             <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/discussion/forum" class="">
+                 Discussion
+             </a>
+          </li>
+          <li>
+             <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/course_wiki" class="">
+                 Wiki
+             </a>
+          </li>
+          <li>
+             <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/progress" class="">
+                 Progress
+             </a>
+          </li>
+    
+    </ol>
+  </div>
+</nav>
+
+
+<section class="container">
+  <div class="course-wrapper">
+    <section aria-label="Course Navigation" class="course-index">
+      <header id="open_close_accordion">
+        <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#">close</a>
+      </header>
+
+      <div id="accordion" style="" class="ui-accordion ui-widget ui-helper-reset ui-accordion-icons" role="tablist">
+        <nav>
+          
+
+
+
+    
+  <div class="chapter">
+    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-e"></span><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#">Overview</a>
+    </h3>
+
+    <ul class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;">
+          <li class=" ">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_0/edx_introduction/">
+              <p>edX introduction</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+    </ul>
+  </div>
+
+    
+  <div class="chapter">
+    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-e"></span><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#">Week&nbsp;1</a>
+    </h3>
+
+    <ul class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;">
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_1/Lecture_1/">
+              <p>Introduction to Computation</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_1/Lecture_2/">
+              <p>Core Elements of Programs</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+          <li class=" ">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_1/Problem_Set_1/">
+              <p>Problem Set 1</p>
+              <p class="subtitle">Problem&nbsp;Set</p>
+            </a>
+          </li>
+    </ul>
+  </div>
+
+    
+  <div class="chapter">
+    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-e"></span><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#">Week&nbsp;2</a>
+    </h3>
+
+    <ul class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;">
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_2/Lecture_3/">
+              <p>Simple Algorithms</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_2/Lecture_4/">
+              <p>Functions</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_2/Problem_Set_2/">
+              <p>Problem Set 2</p>
+              <p class="subtitle">Problem Set due October 16, 22:00,&nbsp;2012</p>
+            </a>
+          </li>
+    </ul>
+  </div>
+
+    
+  <div class="chapter">
+    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-e"></span><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#">Week&nbsp;3</a>
+    </h3>
+
+    <ul class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;">
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_3/Lecture_5/">
+              <p>Recursion</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_3/Lecture_6/">
+              <p>Objects</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_3/Problem_Set_3/">
+              <p>Problem Set 3</p>
+              <p class="subtitle">Problem Set due October 23, 22:00,&nbsp;2012</p>
+            </a>
+          </li>
+    </ul>
+  </div>
+
+    
+  <div class="chapter">
+    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-e"></span><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#">Week&nbsp;4</a>
+    </h3>
+
+    <ul class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;">
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_4/Lecture_7/">
+              <p>Debugging</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_4/Lecture_8/">
+              <p>Efficiency and Orders of Growth</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_4/Problem_Set_4/">
+              <p>Problem Set 4</p>
+              <p class="subtitle">Problem Set due October 30, 22:00,&nbsp;2012</p>
+            </a>
+          </li>
+    </ul>
+  </div>
+
+    
+  <div class="chapter">
+    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-e"></span><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#">Week&nbsp;5</a>
+    </h3>
+
+    <ul class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;">
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_5/Lecture_9/">
+              <p>Memory and Search</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_5/Problem_Set_5/">
+              <p>Problem Set 5</p>
+              <p class="subtitle">Problem Set due November 8, 22:00,&nbsp;2012</p>
+            </a>
+          </li>
+    </ul>
+  </div>
+
+    
+  <div class="chapter">
+    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-e"></span><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#">Midterm Exam&nbsp;1</a>
+    </h3>
+
+    <ul class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;">
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Exam_1/F2012_Exam_1/">
+              <p>Midterm Exam 1</p>
+              <p class="subtitle">Midterm due November 4, 23:59,&nbsp;2012</p>
+            </a>
+          </li>
+          <li class=" ">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Exam_1/CheckGrader_F2012_Exam_1/">
+              <p>Midterm Exam Code Graders</p>
+              <p class="subtitle"></p>
+            </a>
+          </li>
+    </ul>
+  </div>
+
+    
+  <div class="chapter">
+    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-e"></span><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#">Week&nbsp;6</a>
+    </h3>
+
+    <ul class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;">
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_6/Lecture_10/">
+              <p>Classes</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_6/Lecture_11/">
+              <p>Object Oriented Programming</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_6/Problem_Set_6/">
+              <p>Problem Set 6</p>
+              <p class="subtitle">Problem Set due November 14, 22:00,&nbsp;2012</p>
+            </a>
+          </li>
+    </ul>
+  </div>
+
+    
+  <div class="chapter">
+    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-e"></span><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#">Week&nbsp;7</a>
+    </h3>
+
+    <ul class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;">
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_7/Lecture_12/">
+              <p>Plotting</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_7/Lecture_13/">
+              <p>Simulations and Random Walks</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_7/Problem_Set_7/">
+              <p>Problem Set 7</p>
+              <p class="subtitle">Problem Set due November 26, 22:00,&nbsp;2012</p>
+            </a>
+          </li>
+    </ul>
+  </div>
+
+    
+  <div class="chapter">
+    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-e"></span><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#">Week&nbsp;8</a>
+    </h3>
+
+    <ul class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;">
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_8/Lecture_14/">
+              <p>Sampling and Monte Carlo Methods</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+    </ul>
+  </div>
+
+    
+  <div class="chapter">
+    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-e"></span><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#">Week&nbsp;9</a>
+    </h3>
+
+    <ul class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;">
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_9/Lecture_15/">
+              <p>Statistical Thinking</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_9/Lecture_16/">
+              <p>Using Randomness to Solve Non-Random Problems</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_9/Problem_Set_8/">
+              <p>Problem Set 8</p>
+              <p class="subtitle">Problem Set due December 12, 22:00,&nbsp;2012</p>
+            </a>
+          </li>
+    </ul>
+  </div>
+
+    
+  <div class="chapter">
+    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-e"></span><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#">Week&nbsp;10</a>
+    </h3>
+
+    <ul class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;">
+          <li class=" ">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_10/Lecture_17/">
+              <p>Curve Fitting</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+    </ul>
+  </div>
+
+    
+  <div class="chapter">
+    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-e"></span><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#">Midterm Exam&nbsp;2</a>
+    </h3>
+
+    <ul class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;">
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Exam_2/F2012_Exam_2/">
+              <p>Midterm Exam 2</p>
+              <p class="subtitle">Midterm due December 10, 11:59,&nbsp;2012</p>
+            </a>
+          </li>
+          <li class=" ">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Exam_2/CheckGrader_F2012_Exam_2/">
+              <p>Midterm Exam Code Graders</p>
+              <p class="subtitle"></p>
+            </a>
+          </li>
+    </ul>
+  </div>
+
+    
+  <div class="chapter">
+    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-e"></span><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#">Week&nbsp;11</a>
+    </h3>
+
+    <ul class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;">
+          <li class=" ">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_11/Lecture_18/">
+              <p>Optimization Problems</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+          <li class=" ">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_11/Lecture_19/">
+              <p>Graphs</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_11/Problem_Set_9/">
+              <p>Problem Set 9</p>
+              <p class="subtitle">Problem Set due January 2 2013,&nbsp;22:00</p>
+            </a>
+          </li>
+    </ul>
+  </div>
+
+    
+  <div class="chapter is-open">
+    <h3 class="active ui-accordion-header ui-helper-reset ui-state-default ui-state-active ui-corner-top" role="tab" aria-expanded="true" aria-selected="true" tabindex="0"><span class="ui-icon ui-icon-triangle-1-s"></span><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#">Week&nbsp;12</a>
+    </h3>
+
+    <ul class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom ui-accordion-content-active" role="tabpanel">
+          <li class=" ">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Lecture_20/">
+              <p>More On Graphs</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+          <li class=" ">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Lecture_21/">
+              <p>Dynamic Programming</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+          <li class="active graded">
+            <a href="./pset10-3_files/pset10-3.htm">
+              <p>Problem Set 10</p>
+              <p class="subtitle">Problem&nbsp;Set</p>
+            </a>
+          </li>
+    </ul>
+  </div>
+
+    
+  <div class="chapter">
+    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-e"></span><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#">Week&nbsp;13</a>
+    </h3>
+
+    <ul class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;">
+          <li class=" ">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_13/Lecture_22/">
+              <p>Statistical Fallacies</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+          <li class=" ">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_13/Lecture_23/">
+              <p>Guest Lectures</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+    </ul>
+  </div>
+
+    
+  <div class="chapter">
+    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-e"></span><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#">Week&nbsp;14</a>
+    </h3>
+
+    <ul class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;">
+          <li class=" ">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_14/Lecture_24/">
+              <p>Summary</p>
+              <p class="subtitle">Lecture&nbsp;Sequence</p>
+            </a>
+          </li>
+    </ul>
+  </div>
+
+    
+  <div class="chapter">
+    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-e"></span><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#">Final&nbsp;Exam</a>
+    </h3>
+
+    <ul class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;">
+          <li class=" graded">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Final/F2012_Final/">
+              <p>Final Exam</p>
+              <p class="subtitle">Final due January 14, 23:59,&nbsp;2013</p>
+            </a>
+          </li>
+          <li class=" ">
+            <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Final/CheckGrader_F2012_Final/">
+              <p>Final Exam Code Graders</p>
+              <p class="subtitle"></p>
+            </a>
+          </li>
+    </ul>
+  </div>
+
+
+        </nav>
+      </div>
+    </section>
+
+    <section class="course-content">
+      <section class="xmodule_display xmodule_SequenceModule" data-type="Sequence">
+    <div id="sequence_i4x-MITx-6_00x-sequential-Problem_Set_10" class="sequence" data-id="i4x://MITx/6.00x/sequential/Problem_Set_10" data-position="1" data-course_modx_root="/courses/MITx/6.00x/2012_Fall/modx">
+  <nav aria-label="Section Navigation" class="sequence-nav">
+    <div class="sequence-list-wrapper">
+      <ol id="sequence-list" style="left: 0.18181824684143066px;">
+        <li>
+        <a class="seq_other progress-NA visited" data-id="i4x://MITx/6.00x/vertical/vertical_924542394ce8" data-element="1">
+            <p>Introduction</p>
+          </a>
+        </li>
+        <li>
+        <a class="seq_other progress-NA visited" data-id="i4x://MITx/6.00x/vertical/vertical_5faefff901f9" data-element="2">
+            <p>Background</p>
+          </a>
+        </li>
+        <li>
+        <a class="seq_problem progress-NA active" data-id="i4x://MITx/6.00x/vertical/vertical_a85021d25d01" data-element="3">
+            <p>Problem 1: Creating the Data Structure Representation</p>
+          </a>
+        </li>
+        <li>
+        <a class="seq_problem inactive progress-NA" data-id="i4x://MITx/6.00x/vertical/vertical_9e4c80e40c11" data-element="4">
+            <p>Problem 2: Building up the Campus Map</p>
+          </a>
+        </li>
+        <li>
+        <a class="seq_problem inactive progress-NA" data-id="i4x://MITx/6.00x/vertical/vertical_8b7056857873" data-element="5">
+            <p>Problem 3: Find the Shortest Path using Brute Force</p>
+          </a>
+        </li>
+      </ol>
+    <div class="left-shadow" style="opacity: 0;"></div><div class="right-shadow" style="opacity: 0;"></div></div>
+
+    <ul class="sequence-nav-buttons">
+      <li class="prev"><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#" class="">Previous</a></li>
+      <li class="next"><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#">Next</a></li>
+    </ul>
+  </nav>
+
+  <div class="seq_contents tex2jax_ignore asciimath2jax_ignore">&lt;section class="xmodule_display xmodule_VerticalModule" data-type="None"&gt;
+    &lt;ol class="vert-mod"&gt;
+  &lt;li id="vert-0" data-id="i4x://MITx/6.00x/html/ps10:Introduction"&gt;
+    &lt;section class="xmodule_display xmodule_HtmlModule" data-type="HTMLModule"&gt;
+    &lt;text&gt;&lt;h2&gt;Introduction&lt;/h2&gt;&lt;p&gt;In this problem set you will write a solution to an optimization
+      problem on how to find the shortest route from one building to
+      another on the MIT campus given that you wish to constrain the
+      amount of time you will spend walking outdoors (because generally
+      speaking, the nocturnal beaver... er, the nocturnal MIT engineer...
+      hates the sun).&lt;/p&gt;&lt;h2&gt;Getting Started&lt;/h2&gt;&lt;p&gt;Download Files: &lt;a href="/static/content-mit-600x~2012_Fall/files/templates/ProblemSet10.28df39536b6d.zip" target="_blank"&gt;
+	Problem Set 10 skeleton code.&lt;/a&gt;
+      This zip archive includes the following files:
+    &lt;/p&gt;&lt;ol&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ps10.py&lt;/code&gt;: code skeleton&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;graph.py&lt;/code&gt;: a set of graph-related data structures
+	  (Digraph, Node, and Edge) that you can use&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;mit_map.txt&lt;/code&gt;: a sample data file that holds the
+	  information about an MIT campus map.&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/text&gt;
+&lt;/section&gt;
+
+  &lt;/li&gt;
+  &lt;li id="vert-1" data-id="i4x://MITx/6.00x/discussion/discussion_811eda0eb50e"&gt;
+    &lt;section class="xmodule_display xmodule_DiscussionModule" data-type="InlineDiscussion"&gt;
+    
+
+&lt;script type="text/template" id="thread-template"&gt;
+    &lt;article class="discussion-article" data-id="&lt;%- id %&gt;"&gt;
+        &lt;div class="thread-content-wrapper"&gt;&lt;/div&gt;
+        &lt;ol class="responses"&gt;
+            &lt;li class="loading"&gt;&lt;div class="loading-animation"&gt;&lt;/div&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+        &lt;div class="post-status-closed bottom-post-status" style="display: none"&gt;
+          This thread is closed.
+        &lt;/div&gt;
+        &lt;form class="discussion-reply-new" data-id="&lt;%- id %&gt;"&gt;
+            &lt;h4&gt;Post a response:&lt;/h4&gt;
+            &lt;ul class="discussion-errors"&gt;&lt;/ul&gt;
+            &lt;div class="reply-body" data-id="&lt;%- id %&gt;"&gt;&lt;/div&gt;
+            &lt;div class="reply-post-control"&gt;
+                &lt;a class="discussion-submit-post control-button" href="#"&gt;Submit&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+    &lt;/article&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-show-template"&gt;
+  &lt;div class="discussion-post"&gt;
+      &lt;div&gt;&lt;a href="javascript:void(0)" class="dogear action-follow" data-tooltip="follow"&gt;&lt;/a&gt;&lt;/div&gt;
+      &lt;header&gt;
+          &lt;a href="#" class="vote-btn discussion-vote discussion-vote-up" data-role="discussion-vote" data-tooltip="vote"&gt;&lt;span class="plus-icon"&gt;+&lt;/span&gt; &lt;span class='votes-count-number'&gt;&lt;%- votes["up_count"] %&gt;&lt;/span&gt;&lt;/a&gt;
+          &lt;h1&gt;&lt;%- title %&gt;&lt;/h1&gt;
+          &lt;p class="posted-details"&gt;
+              &lt;% if (obj.username) { %&gt;
+              &lt;a href="&lt;%- user_url %&gt;" class="username"&gt;&lt;%- username %&gt;&lt;/a&gt;
+              &lt;% } else {print('anonymous');} %&gt;
+              &lt;span class="timeago" title="&lt;%- created_at %&gt;"&gt;&lt;%- created_at %&gt;&lt;/span&gt;
+
+              &lt;span class="post-status-closed top-post-status" style="display: none"&gt;
+                &amp;bull; This thread is closed.
+              &lt;/span&gt;
+          &lt;/p&gt;
+      &lt;/header&gt;
+
+      &lt;div class="post-body"&gt;&lt;%- body %&gt;&lt;/div&gt;
+      &lt;% if (obj.courseware_url) { %&gt;
+      &lt;div class="post-context"&gt;
+          (this post is about &lt;a href="&lt;%- courseware_url%&gt;"&gt;&lt;%- courseware_title %&gt;&lt;/a&gt;)
+      &lt;/div&gt;
+      &lt;% } %&gt;
+
+      &lt;ul class="moderator-actions"&gt;
+          &lt;li style="display: none"&gt;&lt;a class="action-edit" href="javascript:void(0)"&gt;&lt;span class="edit-icon"&gt;&lt;/span&gt; Edit&lt;/a&gt;&lt;/li&gt;
+          &lt;li style="display: none"&gt;&lt;a class="action-delete" href="javascript:void(0)"&gt;&lt;span class="delete-icon"&gt;&lt;/span&gt; Delete&lt;/a&gt;&lt;/li&gt;
+          &lt;li style="display: none"&gt;&lt;a class="action-openclose" href="javascript:void(0)"&gt;&lt;span class="edit-icon"&gt;&lt;/span&gt; Close&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-edit-template"&gt;
+  &lt;div class="discussion-post edit-post-form"&gt;
+    &lt;h1&gt;Editing post&lt;/h1&gt;
+    &lt;ul class="edit-post-form-errors"&gt;&lt;/ul&gt;
+    &lt;div class="form-row"&gt;
+      &lt;input type="text" class="edit-post-title" name="title" value="&lt;%-title %&gt;" placeholder="Title"&gt;
+    &lt;/div&gt;
+    &lt;div class="form-row"&gt;
+      &lt;div class="edit-post-body" name="body"&gt;&lt;%- body %&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;input type="submit" class="post-update" value="Update post"&gt;
+    &lt;a href="#" class="post-cancel"&gt;Cancel&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-response-template"&gt;
+    &lt;div class="discussion-response"&gt;&lt;/div&gt;
+    &lt;ol class="comments"&gt;
+        &lt;li class="new-comment response-local"&gt;
+            &lt;form class="comment-form" data-id="&lt;%- wmdId %&gt;"&gt;
+                &lt;ul class="discussion-errors"&gt;&lt;/ul&gt;
+                &lt;div class="comment-body" data-id="&lt;%- wmdId %&gt;"
+                data-placeholder="Add a comment..."&gt;&lt;/div&gt;
+                &lt;div class="comment-post-control"&gt;
+                    &lt;a class="discussion-submit-comment control-button" href="#"&gt;Submit&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-response-show-template"&gt;
+    &lt;header class="response-local"&gt;
+        &lt;a href="javascript:void(0)" class="vote-btn" data-tooltip="vote"&gt;&lt;span class="plus-icon"&gt;&lt;/span&gt;&lt;span class="votes-count-number"&gt;&lt;%- votes['up_count'] %&gt;&lt;/span&gt;&lt;/a&gt;
+        &lt;a href="javascript:void(0)" class="endorse-btn&lt;% if (endorsed) { %&gt; is-endorsed&lt;% } %&gt; action-endorse" style="cursor: default; display: none;" data-tooltip="endorse"&gt;&lt;span class="check-icon" style="pointer-events: none; "&gt;&lt;/span&gt;&lt;/a&gt;
+        &lt;% if (obj.username) { %&gt;
+        &lt;a href="&lt;%- user_url %&gt;" class="posted-by"&gt;&lt;%- username %&gt;&lt;/a&gt;
+        &lt;% } else {print('&lt;span class="anonymous"&gt;&lt;em&gt;anonymous&lt;/em&gt;&lt;/span&gt;');} %&gt;
+        &lt;p class="posted-details" title="&lt;%- created_at %&gt;"&gt;&lt;%- created_at %&gt;&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;div class="response-local"&gt;&lt;div class="response-body"&gt;&lt;%- body %&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;ul class="moderator-actions response-local"&gt;
+        &lt;li style="display: none"&gt;&lt;a class="action-edit" href="javascript:void(0)"&gt;&lt;span class="edit-icon"&gt;&lt;/span&gt; Edit&lt;/a&gt;&lt;/li&gt;
+        &lt;li style="display: none"&gt;&lt;a class="action-delete" href="javascript:void(0)"&gt;&lt;span class="delete-icon"&gt;&lt;/span&gt; Delete&lt;/a&gt;&lt;/li&gt;
+        &lt;li style="display: none"&gt;&lt;a class="action-openclose" href="javascript:void(0)"&gt;&lt;span class="edit-icon"&gt;&lt;/span&gt; Close&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-response-edit-template"&gt;
+  &lt;div class="edit-post-form"&gt;
+    &lt;h1&gt;Editing response&lt;/h1&gt;
+    &lt;ul class="edit-post-form-errors"&gt;&lt;/ul&gt;
+    &lt;div class="form-row"&gt;
+      &lt;div class="edit-post-body" name="body"&gt;&lt;%- body %&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;input type="submit" class="post-update" value="Update response"&gt;
+    &lt;a href="#" class="post-cancel"&gt;Cancel&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="response-comment-show-template"&gt;
+  &lt;div id="comment_&lt;%- id %&gt;"&gt;
+    &lt;div class="response-body"&gt;&lt;%- body %&gt;&lt;/div&gt;
+    &lt;p class="posted-details"&gt;&amp;ndash;posted &lt;span class="timeago" title="&lt;%- created_at %&gt;"&gt;&lt;%- created_at %&gt;&lt;/span&gt; by
+        &lt;% if (obj.username) { %&gt;
+        &lt;a href="&lt;%- user_url %&gt;" class="profile-link"&gt;&lt;%- username %&gt;&lt;/a&gt;
+        &lt;% } else {print('anonymous');} %&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-list-item-template"&gt;
+    &lt;a href="&lt;%- id %&gt;" data-id="&lt;%- id %&gt;"&gt;
+        &lt;span class="title"&gt;&lt;%- title %&gt;&lt;/span&gt;
+        &lt;% if (unread_comments_count &gt; 0) { %&gt;
+            &lt;span class="comments-count unread" data-tooltip="&lt;%- unread_comments_count %&gt; new comment&lt;%- unread_comments_count &gt; 1 ? 's' : '' %&gt;"&gt;&lt;%- comments_count %&gt;&lt;/span&gt;
+        &lt;% } else { %&gt;
+            &lt;span class="comments-count"&gt;&lt;%- comments_count %&gt;&lt;/span&gt;
+        &lt;% } %&gt;
+        &lt;span class="votes-count"&gt;+&lt;%- votes['up_count'] %&gt;&lt;/span&gt;
+    &lt;/a&gt;
+&lt;/script&gt;
+
+
+&lt;div class="discussion-module" data-discussion-id="600x_ps10_inst"&gt;
+    &lt;a class="discussion-show control-button" href="javascript:void(0)" data-discussion-id="600x_ps10_inst"&gt;&lt;span class="show-hide-discussion-icon"&gt;&lt;/span&gt;&lt;span class="button-text"&gt;Show Discussion&lt;/span&gt;&lt;/a&gt;
+    &lt;a href="#" class="new-post-btn"&gt;&lt;span class="new-post-icon"&gt;&lt;/span&gt;New Post&lt;/a&gt;
+    
+    
+&lt;/div&gt;
+
+&lt;/section&gt;
+
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;/section&gt;
+</div>
+  <div class="seq_contents tex2jax_ignore asciimath2jax_ignore">&lt;section class="xmodule_display xmodule_VerticalModule" data-type="None"&gt;
+    &lt;ol class="vert-mod"&gt;
+  &lt;li id="vert-0" data-id="i4x://MITx/6.00x/html/ps10:Background"&gt;
+    &lt;section class="xmodule_display xmodule_HtmlModule" data-type="HTMLModule"&gt;
+    &lt;text&gt;&lt;h2&gt;Background&lt;/h2&gt;&lt;p&gt;A graph consists of a set of nodes (n&lt;sub&gt;1&lt;/sub&gt;,
+      n&lt;sub&gt;2&lt;/sub&gt;, n&lt;sub&gt;3&lt;/sub&gt;, ....) and a set of edges
+      (e&lt;sub&gt;1&lt;/sub&gt;, e&lt;sub&gt;2&lt;/sub&gt;, e&lt;sub&gt;3&lt;/sub&gt;, ...) where an edge
+      connects two nodes that are in the graph. The node n&lt;sub&gt;1&lt;/sub&gt;
+      has children nodes if there exists an edge from n&lt;sub&gt;1&lt;/sub&gt; to
+      each child node. In Figure 1, Node "a" has children nodes "b" and
+      "c".&lt;/p&gt;&lt;p&gt;There are two types of edges: directed and undirected. If the
+      edge is directed, then the edge has a specific direction going from
+      start to destination node. Graphs with directed edges are called
+      directed graphs (or &lt;strong&gt;digraph&lt;/strong&gt;).&lt;/p&gt;&lt;a href="/static/content-mit-600x~2012_Fall/files/ps10_files/ps10_directedgraph.01b9f60a9df0.gif"&gt;&lt;img class="aligncenter size-full wp-image-1163" title="ps10_directedgraph" src="/static/content-mit-600x~2012_Fall/files/ps10_files/ps10_directedgraph.01b9f60a9df0.gif" alt="" width="250" height="116"/&gt;&lt;/a&gt;&lt;p&gt;&lt;em&gt;Figure 1. Example of a &lt;strong&gt;directed&lt;/strong&gt; graph where
+	each edge has a specific direction.&lt;/em&gt;&lt;/p&gt;&lt;p&gt;If the edge is undirected, also known as bidirectional, then it
+      no longer matters which node is the start or destination node
+      because you can traverse the edge from one node to the other in
+      either direction. Essentially, a link in the graph can be
+      represented by a directed edge going from Node "d" to Node "e" and
+      a directed edge going in the reverse direction.&lt;/p&gt;&lt;a href="/static/content-mit-600x~2012_Fall/files/ps10_files/ps10_undirectedgraph.d20e6e01f6a8.gif"&gt;&lt;img class="aligncenter size-full wp-image-1164" title="ps10_undirectedgraph" src="/static/content-mit-600x~2012_Fall/files/ps10_files/ps10_undirectedgraph.d20e6e01f6a8.gif" alt="" width="236" height="106"/&gt;&lt;/a&gt;&lt;p&gt;&lt;em&gt;Figure 2. Example of an &lt;strong&gt;undirected&lt;/strong&gt; graph
+	where each edge is bidirectional.&lt;/em&gt;&lt;/p&gt;&lt;p&gt;An edge can also have a weight. If every edge is associated with
+      a real number (edge weight), then we have weighted graph.&lt;/p&gt;&lt;a href="/static/content-mit-600x~2012_Fall/files/ps10_files/ps10_weightedgraph.1fa763c355ac.gif"&gt;&lt;img class="aligncenter size-full wp-image-1165" title="ps10_weightedgraph" src="/static/content-mit-600x~2012_Fall/files/ps10_files/ps10_weightedgraph.1fa763c355ac.gif" alt="" width="258" height="124"/&gt;&lt;/a&gt;&lt;p&gt;&lt;em&gt;Figure 3. Example of an &lt;strong&gt;weighted&lt;/strong&gt; graph
+	where each edge has a weight associated with it.&lt;/em&gt;&lt;/p&gt;&lt;p&gt;In a graph theory problem, the &lt;strong&gt;objective
+	function&lt;/strong&gt; is the function to be minimized (or maximized).
+      For example, choosing the shortest path for airplane flights is an
+      optimization problem where the objective function is to minimize
+      the distance traveled. The nodes are the destination airports and
+      edges are the presence of airplane routes between airports. We can
+      add additional &lt;strong&gt;constraints&lt;/strong&gt; on the problem that
+      must be satisfied such as requiring that the plane only make at
+      most 2 stops along the way from start to end destination. Then the
+      shortest path is only valid if it satisfies the constraint.&lt;/p&gt;&lt;h2&gt;The MIT Map&lt;/h2&gt;&lt;a href="/static/content-mit-600x~2012_Fall/files/ps10_files/ps10_campusmap.393dc64ff892.gif"&gt;&lt;img class="aligncenter size-full wp-image-1162" title="ps10_campusmap" src="/static/content-mit-600x~2012_Fall/files/ps10_files/ps10_campusmap.393dc64ff892.gif" alt="" width="468" height="275"/&gt;&lt;/a&gt;&lt;p&gt;Here is the map of the MIT campus.
+      From the text input file, &lt;code&gt;mit_map.txt&lt;/code&gt;, you will build a
+      representation of this map in Python using the graph-related data
+      structures that we provide.&lt;/p&gt;&lt;p&gt;Each line in &lt;code&gt;mit_map.txt&lt;/code&gt; has 4 pieces of data in it in
+      the following order separated by a single space (space-delimited):
+      the start building, the destination building, the distance in
+      meters between the two buildings, and the distance in meters
+      between the two buildings that must be spent outdoors. For example,
+      suppose the map text file contained the following line:&lt;/p&gt;&lt;pre&gt;
+10     32     200     40
+&lt;/pre&gt;&lt;p&gt;This means that the map contains an edge from building 10 (start
+      location) to building 32 (end location) that is 200 meters long,
+      where 40 of those 200 meters are spent outside.&lt;/p&gt;&lt;p&gt;To make the problem interesting, we will say that not every
+      route between a pair of buildings is bi-directional. For example,
+      it may be possible to get from building 54 (Green building) to
+      building 56, but not the other way around, because the wind that
+      blows away from the Green building is too strong.&lt;/p&gt;&lt;/text&gt;
+&lt;/section&gt;
+
+  &lt;/li&gt;
+  &lt;li id="vert-1" data-id="i4x://MITx/6.00x/discussion/discussion_811eda0eb50e"&gt;
+    &lt;section class="xmodule_display xmodule_DiscussionModule" data-type="InlineDiscussion"&gt;
+    
+
+&lt;script type="text/template" id="thread-template"&gt;
+    &lt;article class="discussion-article" data-id="&lt;%- id %&gt;"&gt;
+        &lt;div class="thread-content-wrapper"&gt;&lt;/div&gt;
+        &lt;ol class="responses"&gt;
+            &lt;li class="loading"&gt;&lt;div class="loading-animation"&gt;&lt;/div&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+        &lt;div class="post-status-closed bottom-post-status" style="display: none"&gt;
+          This thread is closed.
+        &lt;/div&gt;
+        &lt;form class="discussion-reply-new" data-id="&lt;%- id %&gt;"&gt;
+            &lt;h4&gt;Post a response:&lt;/h4&gt;
+            &lt;ul class="discussion-errors"&gt;&lt;/ul&gt;
+            &lt;div class="reply-body" data-id="&lt;%- id %&gt;"&gt;&lt;/div&gt;
+            &lt;div class="reply-post-control"&gt;
+                &lt;a class="discussion-submit-post control-button" href="#"&gt;Submit&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+    &lt;/article&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-show-template"&gt;
+  &lt;div class="discussion-post"&gt;
+      &lt;div&gt;&lt;a href="javascript:void(0)" class="dogear action-follow" data-tooltip="follow"&gt;&lt;/a&gt;&lt;/div&gt;
+      &lt;header&gt;
+          &lt;a href="#" class="vote-btn discussion-vote discussion-vote-up" data-role="discussion-vote" data-tooltip="vote"&gt;&lt;span class="plus-icon"&gt;+&lt;/span&gt; &lt;span class='votes-count-number'&gt;&lt;%- votes["up_count"] %&gt;&lt;/span&gt;&lt;/a&gt;
+          &lt;h1&gt;&lt;%- title %&gt;&lt;/h1&gt;
+          &lt;p class="posted-details"&gt;
+              &lt;% if (obj.username) { %&gt;
+              &lt;a href="&lt;%- user_url %&gt;" class="username"&gt;&lt;%- username %&gt;&lt;/a&gt;
+              &lt;% } else {print('anonymous');} %&gt;
+              &lt;span class="timeago" title="&lt;%- created_at %&gt;"&gt;&lt;%- created_at %&gt;&lt;/span&gt;
+
+              &lt;span class="post-status-closed top-post-status" style="display: none"&gt;
+                &amp;bull; This thread is closed.
+              &lt;/span&gt;
+          &lt;/p&gt;
+      &lt;/header&gt;
+
+      &lt;div class="post-body"&gt;&lt;%- body %&gt;&lt;/div&gt;
+      &lt;% if (obj.courseware_url) { %&gt;
+      &lt;div class="post-context"&gt;
+          (this post is about &lt;a href="&lt;%- courseware_url%&gt;"&gt;&lt;%- courseware_title %&gt;&lt;/a&gt;)
+      &lt;/div&gt;
+      &lt;% } %&gt;
+
+      &lt;ul class="moderator-actions"&gt;
+          &lt;li style="display: none"&gt;&lt;a class="action-edit" href="javascript:void(0)"&gt;&lt;span class="edit-icon"&gt;&lt;/span&gt; Edit&lt;/a&gt;&lt;/li&gt;
+          &lt;li style="display: none"&gt;&lt;a class="action-delete" href="javascript:void(0)"&gt;&lt;span class="delete-icon"&gt;&lt;/span&gt; Delete&lt;/a&gt;&lt;/li&gt;
+          &lt;li style="display: none"&gt;&lt;a class="action-openclose" href="javascript:void(0)"&gt;&lt;span class="edit-icon"&gt;&lt;/span&gt; Close&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-edit-template"&gt;
+  &lt;div class="discussion-post edit-post-form"&gt;
+    &lt;h1&gt;Editing post&lt;/h1&gt;
+    &lt;ul class="edit-post-form-errors"&gt;&lt;/ul&gt;
+    &lt;div class="form-row"&gt;
+      &lt;input type="text" class="edit-post-title" name="title" value="&lt;%-title %&gt;" placeholder="Title"&gt;
+    &lt;/div&gt;
+    &lt;div class="form-row"&gt;
+      &lt;div class="edit-post-body" name="body"&gt;&lt;%- body %&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;input type="submit" class="post-update" value="Update post"&gt;
+    &lt;a href="#" class="post-cancel"&gt;Cancel&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-response-template"&gt;
+    &lt;div class="discussion-response"&gt;&lt;/div&gt;
+    &lt;ol class="comments"&gt;
+        &lt;li class="new-comment response-local"&gt;
+            &lt;form class="comment-form" data-id="&lt;%- wmdId %&gt;"&gt;
+                &lt;ul class="discussion-errors"&gt;&lt;/ul&gt;
+                &lt;div class="comment-body" data-id="&lt;%- wmdId %&gt;"
+                data-placeholder="Add a comment..."&gt;&lt;/div&gt;
+                &lt;div class="comment-post-control"&gt;
+                    &lt;a class="discussion-submit-comment control-button" href="#"&gt;Submit&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-response-show-template"&gt;
+    &lt;header class="response-local"&gt;
+        &lt;a href="javascript:void(0)" class="vote-btn" data-tooltip="vote"&gt;&lt;span class="plus-icon"&gt;&lt;/span&gt;&lt;span class="votes-count-number"&gt;&lt;%- votes['up_count'] %&gt;&lt;/span&gt;&lt;/a&gt;
+        &lt;a href="javascript:void(0)" class="endorse-btn&lt;% if (endorsed) { %&gt; is-endorsed&lt;% } %&gt; action-endorse" style="cursor: default; display: none;" data-tooltip="endorse"&gt;&lt;span class="check-icon" style="pointer-events: none; "&gt;&lt;/span&gt;&lt;/a&gt;
+        &lt;% if (obj.username) { %&gt;
+        &lt;a href="&lt;%- user_url %&gt;" class="posted-by"&gt;&lt;%- username %&gt;&lt;/a&gt;
+        &lt;% } else {print('&lt;span class="anonymous"&gt;&lt;em&gt;anonymous&lt;/em&gt;&lt;/span&gt;');} %&gt;
+        &lt;p class="posted-details" title="&lt;%- created_at %&gt;"&gt;&lt;%- created_at %&gt;&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;div class="response-local"&gt;&lt;div class="response-body"&gt;&lt;%- body %&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;ul class="moderator-actions response-local"&gt;
+        &lt;li style="display: none"&gt;&lt;a class="action-edit" href="javascript:void(0)"&gt;&lt;span class="edit-icon"&gt;&lt;/span&gt; Edit&lt;/a&gt;&lt;/li&gt;
+        &lt;li style="display: none"&gt;&lt;a class="action-delete" href="javascript:void(0)"&gt;&lt;span class="delete-icon"&gt;&lt;/span&gt; Delete&lt;/a&gt;&lt;/li&gt;
+        &lt;li style="display: none"&gt;&lt;a class="action-openclose" href="javascript:void(0)"&gt;&lt;span class="edit-icon"&gt;&lt;/span&gt; Close&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-response-edit-template"&gt;
+  &lt;div class="edit-post-form"&gt;
+    &lt;h1&gt;Editing response&lt;/h1&gt;
+    &lt;ul class="edit-post-form-errors"&gt;&lt;/ul&gt;
+    &lt;div class="form-row"&gt;
+      &lt;div class="edit-post-body" name="body"&gt;&lt;%- body %&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;input type="submit" class="post-update" value="Update response"&gt;
+    &lt;a href="#" class="post-cancel"&gt;Cancel&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="response-comment-show-template"&gt;
+  &lt;div id="comment_&lt;%- id %&gt;"&gt;
+    &lt;div class="response-body"&gt;&lt;%- body %&gt;&lt;/div&gt;
+    &lt;p class="posted-details"&gt;&amp;ndash;posted &lt;span class="timeago" title="&lt;%- created_at %&gt;"&gt;&lt;%- created_at %&gt;&lt;/span&gt; by
+        &lt;% if (obj.username) { %&gt;
+        &lt;a href="&lt;%- user_url %&gt;" class="profile-link"&gt;&lt;%- username %&gt;&lt;/a&gt;
+        &lt;% } else {print('anonymous');} %&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-list-item-template"&gt;
+    &lt;a href="&lt;%- id %&gt;" data-id="&lt;%- id %&gt;"&gt;
+        &lt;span class="title"&gt;&lt;%- title %&gt;&lt;/span&gt;
+        &lt;% if (unread_comments_count &gt; 0) { %&gt;
+            &lt;span class="comments-count unread" data-tooltip="&lt;%- unread_comments_count %&gt; new comment&lt;%- unread_comments_count &gt; 1 ? 's' : '' %&gt;"&gt;&lt;%- comments_count %&gt;&lt;/span&gt;
+        &lt;% } else { %&gt;
+            &lt;span class="comments-count"&gt;&lt;%- comments_count %&gt;&lt;/span&gt;
+        &lt;% } %&gt;
+        &lt;span class="votes-count"&gt;+&lt;%- votes['up_count'] %&gt;&lt;/span&gt;
+    &lt;/a&gt;
+&lt;/script&gt;
+
+
+&lt;div class="discussion-module" data-discussion-id="600x_ps10_inst"&gt;
+    &lt;a class="discussion-show control-button" href="javascript:void(0)" data-discussion-id="600x_ps10_inst"&gt;&lt;span class="show-hide-discussion-icon"&gt;&lt;/span&gt;&lt;span class="button-text"&gt;Show Discussion&lt;/span&gt;&lt;/a&gt;
+    &lt;a href="#" class="new-post-btn"&gt;&lt;span class="new-post-icon"&gt;&lt;/span&gt;New Post&lt;/a&gt;
+    
+    
+&lt;/div&gt;
+
+&lt;/section&gt;
+
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;/section&gt;
+</div>
+  <div class="seq_contents tex2jax_ignore asciimath2jax_ignore">&lt;section class="xmodule_display xmodule_VerticalModule" data-type="None"&gt;
+    &lt;ol class="vert-mod"&gt;
+  &lt;li id="vert-0" data-id="i4x://MITx/6.00x/problem/ps10:Problem_1_Data_Structure"&gt;
+    &lt;section class="xmodule_display xmodule_CapaModule" data-type="Problem"&gt;
+    &lt;section id="problem_i4x-MITx-6_00x-problem-ps10_Problem_1_Data_Structure" class="problems-wrapper" data-problem-id="i4x://MITx/6.00x/problem/ps10:Problem_1_Data_Structure" data-url="/courses/MITx/6.00x/2012_Fall/modx/i4x://MITx/6.00x/problem/ps10:Problem_1_Data_Structure"&gt;&lt;/section&gt;
+
+&lt;/section&gt;
+
+  &lt;/li&gt;
+  &lt;li id="vert-1" data-id="i4x://MITx/6.00x/discussion/discussion_26eea432e995"&gt;
+    &lt;section class="xmodule_display xmodule_DiscussionModule" data-type="InlineDiscussion"&gt;
+    
+
+&lt;script type="text/template" id="thread-template"&gt;
+    &lt;article class="discussion-article" data-id="&lt;%- id %&gt;"&gt;
+        &lt;div class="thread-content-wrapper"&gt;&lt;/div&gt;
+        &lt;ol class="responses"&gt;
+            &lt;li class="loading"&gt;&lt;div class="loading-animation"&gt;&lt;/div&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+        &lt;div class="post-status-closed bottom-post-status" style="display: none"&gt;
+          This thread is closed.
+        &lt;/div&gt;
+        &lt;form class="discussion-reply-new" data-id="&lt;%- id %&gt;"&gt;
+            &lt;h4&gt;Post a response:&lt;/h4&gt;
+            &lt;ul class="discussion-errors"&gt;&lt;/ul&gt;
+            &lt;div class="reply-body" data-id="&lt;%- id %&gt;"&gt;&lt;/div&gt;
+            &lt;div class="reply-post-control"&gt;
+                &lt;a class="discussion-submit-post control-button" href="#"&gt;Submit&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+    &lt;/article&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-show-template"&gt;
+  &lt;div class="discussion-post"&gt;
+      &lt;div&gt;&lt;a href="javascript:void(0)" class="dogear action-follow" data-tooltip="follow"&gt;&lt;/a&gt;&lt;/div&gt;
+      &lt;header&gt;
+          &lt;a href="#" class="vote-btn discussion-vote discussion-vote-up" data-role="discussion-vote" data-tooltip="vote"&gt;&lt;span class="plus-icon"&gt;+&lt;/span&gt; &lt;span class='votes-count-number'&gt;&lt;%- votes["up_count"] %&gt;&lt;/span&gt;&lt;/a&gt;
+          &lt;h1&gt;&lt;%- title %&gt;&lt;/h1&gt;
+          &lt;p class="posted-details"&gt;
+              &lt;% if (obj.username) { %&gt;
+              &lt;a href="&lt;%- user_url %&gt;" class="username"&gt;&lt;%- username %&gt;&lt;/a&gt;
+              &lt;% } else {print('anonymous');} %&gt;
+              &lt;span class="timeago" title="&lt;%- created_at %&gt;"&gt;&lt;%- created_at %&gt;&lt;/span&gt;
+
+              &lt;span class="post-status-closed top-post-status" style="display: none"&gt;
+                &amp;bull; This thread is closed.
+              &lt;/span&gt;
+          &lt;/p&gt;
+      &lt;/header&gt;
+
+      &lt;div class="post-body"&gt;&lt;%- body %&gt;&lt;/div&gt;
+      &lt;% if (obj.courseware_url) { %&gt;
+      &lt;div class="post-context"&gt;
+          (this post is about &lt;a href="&lt;%- courseware_url%&gt;"&gt;&lt;%- courseware_title %&gt;&lt;/a&gt;)
+      &lt;/div&gt;
+      &lt;% } %&gt;
+
+      &lt;ul class="moderator-actions"&gt;
+          &lt;li style="display: none"&gt;&lt;a class="action-edit" href="javascript:void(0)"&gt;&lt;span class="edit-icon"&gt;&lt;/span&gt; Edit&lt;/a&gt;&lt;/li&gt;
+          &lt;li style="display: none"&gt;&lt;a class="action-delete" href="javascript:void(0)"&gt;&lt;span class="delete-icon"&gt;&lt;/span&gt; Delete&lt;/a&gt;&lt;/li&gt;
+          &lt;li style="display: none"&gt;&lt;a class="action-openclose" href="javascript:void(0)"&gt;&lt;span class="edit-icon"&gt;&lt;/span&gt; Close&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-edit-template"&gt;
+  &lt;div class="discussion-post edit-post-form"&gt;
+    &lt;h1&gt;Editing post&lt;/h1&gt;
+    &lt;ul class="edit-post-form-errors"&gt;&lt;/ul&gt;
+    &lt;div class="form-row"&gt;
+      &lt;input type="text" class="edit-post-title" name="title" value="&lt;%-title %&gt;" placeholder="Title"&gt;
+    &lt;/div&gt;
+    &lt;div class="form-row"&gt;
+      &lt;div class="edit-post-body" name="body"&gt;&lt;%- body %&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;input type="submit" class="post-update" value="Update post"&gt;
+    &lt;a href="#" class="post-cancel"&gt;Cancel&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-response-template"&gt;
+    &lt;div class="discussion-response"&gt;&lt;/div&gt;
+    &lt;ol class="comments"&gt;
+        &lt;li class="new-comment response-local"&gt;
+            &lt;form class="comment-form" data-id="&lt;%- wmdId %&gt;"&gt;
+                &lt;ul class="discussion-errors"&gt;&lt;/ul&gt;
+                &lt;div class="comment-body" data-id="&lt;%- wmdId %&gt;"
+                data-placeholder="Add a comment..."&gt;&lt;/div&gt;
+                &lt;div class="comment-post-control"&gt;
+                    &lt;a class="discussion-submit-comment control-button" href="#"&gt;Submit&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-response-show-template"&gt;
+    &lt;header class="response-local"&gt;
+        &lt;a href="javascript:void(0)" class="vote-btn" data-tooltip="vote"&gt;&lt;span class="plus-icon"&gt;&lt;/span&gt;&lt;span class="votes-count-number"&gt;&lt;%- votes['up_count'] %&gt;&lt;/span&gt;&lt;/a&gt;
+        &lt;a href="javascript:void(0)" class="endorse-btn&lt;% if (endorsed) { %&gt; is-endorsed&lt;% } %&gt; action-endorse" style="cursor: default; display: none;" data-tooltip="endorse"&gt;&lt;span class="check-icon" style="pointer-events: none; "&gt;&lt;/span&gt;&lt;/a&gt;
+        &lt;% if (obj.username) { %&gt;
+        &lt;a href="&lt;%- user_url %&gt;" class="posted-by"&gt;&lt;%- username %&gt;&lt;/a&gt;
+        &lt;% } else {print('&lt;span class="anonymous"&gt;&lt;em&gt;anonymous&lt;/em&gt;&lt;/span&gt;');} %&gt;
+        &lt;p class="posted-details" title="&lt;%- created_at %&gt;"&gt;&lt;%- created_at %&gt;&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;div class="response-local"&gt;&lt;div class="response-body"&gt;&lt;%- body %&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;ul class="moderator-actions response-local"&gt;
+        &lt;li style="display: none"&gt;&lt;a class="action-edit" href="javascript:void(0)"&gt;&lt;span class="edit-icon"&gt;&lt;/span&gt; Edit&lt;/a&gt;&lt;/li&gt;
+        &lt;li style="display: none"&gt;&lt;a class="action-delete" href="javascript:void(0)"&gt;&lt;span class="delete-icon"&gt;&lt;/span&gt; Delete&lt;/a&gt;&lt;/li&gt;
+        &lt;li style="display: none"&gt;&lt;a class="action-openclose" href="javascript:void(0)"&gt;&lt;span class="edit-icon"&gt;&lt;/span&gt; Close&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-response-edit-template"&gt;
+  &lt;div class="edit-post-form"&gt;
+    &lt;h1&gt;Editing response&lt;/h1&gt;
+    &lt;ul class="edit-post-form-errors"&gt;&lt;/ul&gt;
+    &lt;div class="form-row"&gt;
+      &lt;div class="edit-post-body" name="body"&gt;&lt;%- body %&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;input type="submit" class="post-update" value="Update response"&gt;
+    &lt;a href="#" class="post-cancel"&gt;Cancel&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="response-comment-show-template"&gt;
+  &lt;div id="comment_&lt;%- id %&gt;"&gt;
+    &lt;div class="response-body"&gt;&lt;%- body %&gt;&lt;/div&gt;
+    &lt;p class="posted-details"&gt;&amp;ndash;posted &lt;span class="timeago" title="&lt;%- created_at %&gt;"&gt;&lt;%- created_at %&gt;&lt;/span&gt; by
+        &lt;% if (obj.username) { %&gt;
+        &lt;a href="&lt;%- user_url %&gt;" class="profile-link"&gt;&lt;%- username %&gt;&lt;/a&gt;
+        &lt;% } else {print('anonymous');} %&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-list-item-template"&gt;
+    &lt;a href="&lt;%- id %&gt;" data-id="&lt;%- id %&gt;"&gt;
+        &lt;span class="title"&gt;&lt;%- title %&gt;&lt;/span&gt;
+        &lt;% if (unread_comments_count &gt; 0) { %&gt;
+            &lt;span class="comments-count unread" data-tooltip="&lt;%- unread_comments_count %&gt; new comment&lt;%- unread_comments_count &gt; 1 ? 's' : '' %&gt;"&gt;&lt;%- comments_count %&gt;&lt;/span&gt;
+        &lt;% } else { %&gt;
+            &lt;span class="comments-count"&gt;&lt;%- comments_count %&gt;&lt;/span&gt;
+        &lt;% } %&gt;
+        &lt;span class="votes-count"&gt;+&lt;%- votes['up_count'] %&gt;&lt;/span&gt;
+    &lt;/a&gt;
+&lt;/script&gt;
+
+
+&lt;div class="discussion-module" data-discussion-id="600x_ps10_p1"&gt;
+    &lt;a class="discussion-show control-button" href="javascript:void(0)" data-discussion-id="600x_ps10_p1"&gt;&lt;span class="show-hide-discussion-icon"&gt;&lt;/span&gt;&lt;span class="button-text"&gt;Show Discussion&lt;/span&gt;&lt;/a&gt;
+    &lt;a href="#" class="new-post-btn"&gt;&lt;span class="new-post-icon"&gt;&lt;/span&gt;New Post&lt;/a&gt;
+    
+    
+&lt;/div&gt;
+
+&lt;/section&gt;
+
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;/section&gt;
+</div>
+  <div class="seq_contents tex2jax_ignore asciimath2jax_ignore">&lt;section class="xmodule_display xmodule_VerticalModule" data-type="None"&gt;
+    &lt;ol class="vert-mod"&gt;
+  &lt;li id="vert-0" data-id="i4x://MITx/6.00x/problem/ps10:Problem_2_loadmap"&gt;
+    &lt;section class="xmodule_display xmodule_CapaModule" data-type="Problem"&gt;
+    &lt;section id="problem_i4x-MITx-6_00x-problem-ps10_Problem_2_loadmap" class="problems-wrapper" data-problem-id="i4x://MITx/6.00x/problem/ps10:Problem_2_loadmap" data-url="/courses/MITx/6.00x/2012_Fall/modx/i4x://MITx/6.00x/problem/ps10:Problem_2_loadmap"&gt;&lt;/section&gt;
+
+&lt;/section&gt;
+
+  &lt;/li&gt;
+  &lt;li id="vert-1" data-id="i4x://MITx/6.00x/discussion/discussion_df21e90d8f35"&gt;
+    &lt;section class="xmodule_display xmodule_DiscussionModule" data-type="InlineDiscussion"&gt;
+    
+
+&lt;script type="text/template" id="thread-template"&gt;
+    &lt;article class="discussion-article" data-id="&lt;%- id %&gt;"&gt;
+        &lt;div class="thread-content-wrapper"&gt;&lt;/div&gt;
+        &lt;ol class="responses"&gt;
+            &lt;li class="loading"&gt;&lt;div class="loading-animation"&gt;&lt;/div&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+        &lt;div class="post-status-closed bottom-post-status" style="display: none"&gt;
+          This thread is closed.
+        &lt;/div&gt;
+        &lt;form class="discussion-reply-new" data-id="&lt;%- id %&gt;"&gt;
+            &lt;h4&gt;Post a response:&lt;/h4&gt;
+            &lt;ul class="discussion-errors"&gt;&lt;/ul&gt;
+            &lt;div class="reply-body" data-id="&lt;%- id %&gt;"&gt;&lt;/div&gt;
+            &lt;div class="reply-post-control"&gt;
+                &lt;a class="discussion-submit-post control-button" href="#"&gt;Submit&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+    &lt;/article&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-show-template"&gt;
+  &lt;div class="discussion-post"&gt;
+      &lt;div&gt;&lt;a href="javascript:void(0)" class="dogear action-follow" data-tooltip="follow"&gt;&lt;/a&gt;&lt;/div&gt;
+      &lt;header&gt;
+          &lt;a href="#" class="vote-btn discussion-vote discussion-vote-up" data-role="discussion-vote" data-tooltip="vote"&gt;&lt;span class="plus-icon"&gt;+&lt;/span&gt; &lt;span class='votes-count-number'&gt;&lt;%- votes["up_count"] %&gt;&lt;/span&gt;&lt;/a&gt;
+          &lt;h1&gt;&lt;%- title %&gt;&lt;/h1&gt;
+          &lt;p class="posted-details"&gt;
+              &lt;% if (obj.username) { %&gt;
+              &lt;a href="&lt;%- user_url %&gt;" class="username"&gt;&lt;%- username %&gt;&lt;/a&gt;
+              &lt;% } else {print('anonymous');} %&gt;
+              &lt;span class="timeago" title="&lt;%- created_at %&gt;"&gt;&lt;%- created_at %&gt;&lt;/span&gt;
+
+              &lt;span class="post-status-closed top-post-status" style="display: none"&gt;
+                &amp;bull; This thread is closed.
+              &lt;/span&gt;
+          &lt;/p&gt;
+      &lt;/header&gt;
+
+      &lt;div class="post-body"&gt;&lt;%- body %&gt;&lt;/div&gt;
+      &lt;% if (obj.courseware_url) { %&gt;
+      &lt;div class="post-context"&gt;
+          (this post is about &lt;a href="&lt;%- courseware_url%&gt;"&gt;&lt;%- courseware_title %&gt;&lt;/a&gt;)
+      &lt;/div&gt;
+      &lt;% } %&gt;
+
+      &lt;ul class="moderator-actions"&gt;
+          &lt;li style="display: none"&gt;&lt;a class="action-edit" href="javascript:void(0)"&gt;&lt;span class="edit-icon"&gt;&lt;/span&gt; Edit&lt;/a&gt;&lt;/li&gt;
+          &lt;li style="display: none"&gt;&lt;a class="action-delete" href="javascript:void(0)"&gt;&lt;span class="delete-icon"&gt;&lt;/span&gt; Delete&lt;/a&gt;&lt;/li&gt;
+          &lt;li style="display: none"&gt;&lt;a class="action-openclose" href="javascript:void(0)"&gt;&lt;span class="edit-icon"&gt;&lt;/span&gt; Close&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-edit-template"&gt;
+  &lt;div class="discussion-post edit-post-form"&gt;
+    &lt;h1&gt;Editing post&lt;/h1&gt;
+    &lt;ul class="edit-post-form-errors"&gt;&lt;/ul&gt;
+    &lt;div class="form-row"&gt;
+      &lt;input type="text" class="edit-post-title" name="title" value="&lt;%-title %&gt;" placeholder="Title"&gt;
+    &lt;/div&gt;
+    &lt;div class="form-row"&gt;
+      &lt;div class="edit-post-body" name="body"&gt;&lt;%- body %&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;input type="submit" class="post-update" value="Update post"&gt;
+    &lt;a href="#" class="post-cancel"&gt;Cancel&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-response-template"&gt;
+    &lt;div class="discussion-response"&gt;&lt;/div&gt;
+    &lt;ol class="comments"&gt;
+        &lt;li class="new-comment response-local"&gt;
+            &lt;form class="comment-form" data-id="&lt;%- wmdId %&gt;"&gt;
+                &lt;ul class="discussion-errors"&gt;&lt;/ul&gt;
+                &lt;div class="comment-body" data-id="&lt;%- wmdId %&gt;"
+                data-placeholder="Add a comment..."&gt;&lt;/div&gt;
+                &lt;div class="comment-post-control"&gt;
+                    &lt;a class="discussion-submit-comment control-button" href="#"&gt;Submit&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-response-show-template"&gt;
+    &lt;header class="response-local"&gt;
+        &lt;a href="javascript:void(0)" class="vote-btn" data-tooltip="vote"&gt;&lt;span class="plus-icon"&gt;&lt;/span&gt;&lt;span class="votes-count-number"&gt;&lt;%- votes['up_count'] %&gt;&lt;/span&gt;&lt;/a&gt;
+        &lt;a href="javascript:void(0)" class="endorse-btn&lt;% if (endorsed) { %&gt; is-endorsed&lt;% } %&gt; action-endorse" style="cursor: default; display: none;" data-tooltip="endorse"&gt;&lt;span class="check-icon" style="pointer-events: none; "&gt;&lt;/span&gt;&lt;/a&gt;
+        &lt;% if (obj.username) { %&gt;
+        &lt;a href="&lt;%- user_url %&gt;" class="posted-by"&gt;&lt;%- username %&gt;&lt;/a&gt;
+        &lt;% } else {print('&lt;span class="anonymous"&gt;&lt;em&gt;anonymous&lt;/em&gt;&lt;/span&gt;');} %&gt;
+        &lt;p class="posted-details" title="&lt;%- created_at %&gt;"&gt;&lt;%- created_at %&gt;&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;div class="response-local"&gt;&lt;div class="response-body"&gt;&lt;%- body %&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;ul class="moderator-actions response-local"&gt;
+        &lt;li style="display: none"&gt;&lt;a class="action-edit" href="javascript:void(0)"&gt;&lt;span class="edit-icon"&gt;&lt;/span&gt; Edit&lt;/a&gt;&lt;/li&gt;
+        &lt;li style="display: none"&gt;&lt;a class="action-delete" href="javascript:void(0)"&gt;&lt;span class="delete-icon"&gt;&lt;/span&gt; Delete&lt;/a&gt;&lt;/li&gt;
+        &lt;li style="display: none"&gt;&lt;a class="action-openclose" href="javascript:void(0)"&gt;&lt;span class="edit-icon"&gt;&lt;/span&gt; Close&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-response-edit-template"&gt;
+  &lt;div class="edit-post-form"&gt;
+    &lt;h1&gt;Editing response&lt;/h1&gt;
+    &lt;ul class="edit-post-form-errors"&gt;&lt;/ul&gt;
+    &lt;div class="form-row"&gt;
+      &lt;div class="edit-post-body" name="body"&gt;&lt;%- body %&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;input type="submit" class="post-update" value="Update response"&gt;
+    &lt;a href="#" class="post-cancel"&gt;Cancel&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="response-comment-show-template"&gt;
+  &lt;div id="comment_&lt;%- id %&gt;"&gt;
+    &lt;div class="response-body"&gt;&lt;%- body %&gt;&lt;/div&gt;
+    &lt;p class="posted-details"&gt;&amp;ndash;posted &lt;span class="timeago" title="&lt;%- created_at %&gt;"&gt;&lt;%- created_at %&gt;&lt;/span&gt; by
+        &lt;% if (obj.username) { %&gt;
+        &lt;a href="&lt;%- user_url %&gt;" class="profile-link"&gt;&lt;%- username %&gt;&lt;/a&gt;
+        &lt;% } else {print('anonymous');} %&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-list-item-template"&gt;
+    &lt;a href="&lt;%- id %&gt;" data-id="&lt;%- id %&gt;"&gt;
+        &lt;span class="title"&gt;&lt;%- title %&gt;&lt;/span&gt;
+        &lt;% if (unread_comments_count &gt; 0) { %&gt;
+            &lt;span class="comments-count unread" data-tooltip="&lt;%- unread_comments_count %&gt; new comment&lt;%- unread_comments_count &gt; 1 ? 's' : '' %&gt;"&gt;&lt;%- comments_count %&gt;&lt;/span&gt;
+        &lt;% } else { %&gt;
+            &lt;span class="comments-count"&gt;&lt;%- comments_count %&gt;&lt;/span&gt;
+        &lt;% } %&gt;
+        &lt;span class="votes-count"&gt;+&lt;%- votes['up_count'] %&gt;&lt;/span&gt;
+    &lt;/a&gt;
+&lt;/script&gt;
+
+
+&lt;div class="discussion-module" data-discussion-id="600x_ps10_p2"&gt;
+    &lt;a class="discussion-show control-button" href="javascript:void(0)" data-discussion-id="600x_ps10_p2"&gt;&lt;span class="show-hide-discussion-icon"&gt;&lt;/span&gt;&lt;span class="button-text"&gt;Show Discussion&lt;/span&gt;&lt;/a&gt;
+    &lt;a href="#" class="new-post-btn"&gt;&lt;span class="new-post-icon"&gt;&lt;/span&gt;New Post&lt;/a&gt;
+    
+    
+&lt;/div&gt;
+
+&lt;/section&gt;
+
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;/section&gt;
+</div>
+  <div class="seq_contents tex2jax_ignore asciimath2jax_ignore">&lt;section class="xmodule_display xmodule_VerticalModule" data-type="None"&gt;
+    &lt;ol class="vert-mod"&gt;
+  &lt;li id="vert-0" data-id="i4x://MITx/6.00x/problem/ps10:Problem_3_Brute_Force"&gt;
+    &lt;section class="xmodule_display xmodule_CapaModule" data-type="Problem"&gt;
+    &lt;section id="problem_i4x-MITx-6_00x-problem-ps10_Problem_3_Brute_Force" class="problems-wrapper" data-problem-id="i4x://MITx/6.00x/problem/ps10:Problem_3_Brute_Force" data-url="/courses/MITx/6.00x/2012_Fall/modx/i4x://MITx/6.00x/problem/ps10:Problem_3_Brute_Force"&gt;&lt;/section&gt;
+
+&lt;/section&gt;
+
+  &lt;/li&gt;
+  &lt;li id="vert-1" data-id="i4x://MITx/6.00x/discussion/discussion_5ddcc28a7512"&gt;
+    &lt;section class="xmodule_display xmodule_DiscussionModule" data-type="InlineDiscussion"&gt;
+    
+
+&lt;script type="text/template" id="thread-template"&gt;
+    &lt;article class="discussion-article" data-id="&lt;%- id %&gt;"&gt;
+        &lt;div class="thread-content-wrapper"&gt;&lt;/div&gt;
+        &lt;ol class="responses"&gt;
+            &lt;li class="loading"&gt;&lt;div class="loading-animation"&gt;&lt;/div&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+        &lt;div class="post-status-closed bottom-post-status" style="display: none"&gt;
+          This thread is closed.
+        &lt;/div&gt;
+        &lt;form class="discussion-reply-new" data-id="&lt;%- id %&gt;"&gt;
+            &lt;h4&gt;Post a response:&lt;/h4&gt;
+            &lt;ul class="discussion-errors"&gt;&lt;/ul&gt;
+            &lt;div class="reply-body" data-id="&lt;%- id %&gt;"&gt;&lt;/div&gt;
+            &lt;div class="reply-post-control"&gt;
+                &lt;a class="discussion-submit-post control-button" href="#"&gt;Submit&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+    &lt;/article&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-show-template"&gt;
+  &lt;div class="discussion-post"&gt;
+      &lt;div&gt;&lt;a href="javascript:void(0)" class="dogear action-follow" data-tooltip="follow"&gt;&lt;/a&gt;&lt;/div&gt;
+      &lt;header&gt;
+          &lt;a href="#" class="vote-btn discussion-vote discussion-vote-up" data-role="discussion-vote" data-tooltip="vote"&gt;&lt;span class="plus-icon"&gt;+&lt;/span&gt; &lt;span class='votes-count-number'&gt;&lt;%- votes["up_count"] %&gt;&lt;/span&gt;&lt;/a&gt;
+          &lt;h1&gt;&lt;%- title %&gt;&lt;/h1&gt;
+          &lt;p class="posted-details"&gt;
+              &lt;% if (obj.username) { %&gt;
+              &lt;a href="&lt;%- user_url %&gt;" class="username"&gt;&lt;%- username %&gt;&lt;/a&gt;
+              &lt;% } else {print('anonymous');} %&gt;
+              &lt;span class="timeago" title="&lt;%- created_at %&gt;"&gt;&lt;%- created_at %&gt;&lt;/span&gt;
+
+              &lt;span class="post-status-closed top-post-status" style="display: none"&gt;
+                &amp;bull; This thread is closed.
+              &lt;/span&gt;
+          &lt;/p&gt;
+      &lt;/header&gt;
+
+      &lt;div class="post-body"&gt;&lt;%- body %&gt;&lt;/div&gt;
+      &lt;% if (obj.courseware_url) { %&gt;
+      &lt;div class="post-context"&gt;
+          (this post is about &lt;a href="&lt;%- courseware_url%&gt;"&gt;&lt;%- courseware_title %&gt;&lt;/a&gt;)
+      &lt;/div&gt;
+      &lt;% } %&gt;
+
+      &lt;ul class="moderator-actions"&gt;
+          &lt;li style="display: none"&gt;&lt;a class="action-edit" href="javascript:void(0)"&gt;&lt;span class="edit-icon"&gt;&lt;/span&gt; Edit&lt;/a&gt;&lt;/li&gt;
+          &lt;li style="display: none"&gt;&lt;a class="action-delete" href="javascript:void(0)"&gt;&lt;span class="delete-icon"&gt;&lt;/span&gt; Delete&lt;/a&gt;&lt;/li&gt;
+          &lt;li style="display: none"&gt;&lt;a class="action-openclose" href="javascript:void(0)"&gt;&lt;span class="edit-icon"&gt;&lt;/span&gt; Close&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-edit-template"&gt;
+  &lt;div class="discussion-post edit-post-form"&gt;
+    &lt;h1&gt;Editing post&lt;/h1&gt;
+    &lt;ul class="edit-post-form-errors"&gt;&lt;/ul&gt;
+    &lt;div class="form-row"&gt;
+      &lt;input type="text" class="edit-post-title" name="title" value="&lt;%-title %&gt;" placeholder="Title"&gt;
+    &lt;/div&gt;
+    &lt;div class="form-row"&gt;
+      &lt;div class="edit-post-body" name="body"&gt;&lt;%- body %&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;input type="submit" class="post-update" value="Update post"&gt;
+    &lt;a href="#" class="post-cancel"&gt;Cancel&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-response-template"&gt;
+    &lt;div class="discussion-response"&gt;&lt;/div&gt;
+    &lt;ol class="comments"&gt;
+        &lt;li class="new-comment response-local"&gt;
+            &lt;form class="comment-form" data-id="&lt;%- wmdId %&gt;"&gt;
+                &lt;ul class="discussion-errors"&gt;&lt;/ul&gt;
+                &lt;div class="comment-body" data-id="&lt;%- wmdId %&gt;"
+                data-placeholder="Add a comment..."&gt;&lt;/div&gt;
+                &lt;div class="comment-post-control"&gt;
+                    &lt;a class="discussion-submit-comment control-button" href="#"&gt;Submit&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-response-show-template"&gt;
+    &lt;header class="response-local"&gt;
+        &lt;a href="javascript:void(0)" class="vote-btn" data-tooltip="vote"&gt;&lt;span class="plus-icon"&gt;&lt;/span&gt;&lt;span class="votes-count-number"&gt;&lt;%- votes['up_count'] %&gt;&lt;/span&gt;&lt;/a&gt;
+        &lt;a href="javascript:void(0)" class="endorse-btn&lt;% if (endorsed) { %&gt; is-endorsed&lt;% } %&gt; action-endorse" style="cursor: default; display: none;" data-tooltip="endorse"&gt;&lt;span class="check-icon" style="pointer-events: none; "&gt;&lt;/span&gt;&lt;/a&gt;
+        &lt;% if (obj.username) { %&gt;
+        &lt;a href="&lt;%- user_url %&gt;" class="posted-by"&gt;&lt;%- username %&gt;&lt;/a&gt;
+        &lt;% } else {print('&lt;span class="anonymous"&gt;&lt;em&gt;anonymous&lt;/em&gt;&lt;/span&gt;');} %&gt;
+        &lt;p class="posted-details" title="&lt;%- created_at %&gt;"&gt;&lt;%- created_at %&gt;&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;div class="response-local"&gt;&lt;div class="response-body"&gt;&lt;%- body %&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;ul class="moderator-actions response-local"&gt;
+        &lt;li style="display: none"&gt;&lt;a class="action-edit" href="javascript:void(0)"&gt;&lt;span class="edit-icon"&gt;&lt;/span&gt; Edit&lt;/a&gt;&lt;/li&gt;
+        &lt;li style="display: none"&gt;&lt;a class="action-delete" href="javascript:void(0)"&gt;&lt;span class="delete-icon"&gt;&lt;/span&gt; Delete&lt;/a&gt;&lt;/li&gt;
+        &lt;li style="display: none"&gt;&lt;a class="action-openclose" href="javascript:void(0)"&gt;&lt;span class="edit-icon"&gt;&lt;/span&gt; Close&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-response-edit-template"&gt;
+  &lt;div class="edit-post-form"&gt;
+    &lt;h1&gt;Editing response&lt;/h1&gt;
+    &lt;ul class="edit-post-form-errors"&gt;&lt;/ul&gt;
+    &lt;div class="form-row"&gt;
+      &lt;div class="edit-post-body" name="body"&gt;&lt;%- body %&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;input type="submit" class="post-update" value="Update response"&gt;
+    &lt;a href="#" class="post-cancel"&gt;Cancel&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="response-comment-show-template"&gt;
+  &lt;div id="comment_&lt;%- id %&gt;"&gt;
+    &lt;div class="response-body"&gt;&lt;%- body %&gt;&lt;/div&gt;
+    &lt;p class="posted-details"&gt;&amp;ndash;posted &lt;span class="timeago" title="&lt;%- created_at %&gt;"&gt;&lt;%- created_at %&gt;&lt;/span&gt; by
+        &lt;% if (obj.username) { %&gt;
+        &lt;a href="&lt;%- user_url %&gt;" class="profile-link"&gt;&lt;%- username %&gt;&lt;/a&gt;
+        &lt;% } else {print('anonymous');} %&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="thread-list-item-template"&gt;
+    &lt;a href="&lt;%- id %&gt;" data-id="&lt;%- id %&gt;"&gt;
+        &lt;span class="title"&gt;&lt;%- title %&gt;&lt;/span&gt;
+        &lt;% if (unread_comments_count &gt; 0) { %&gt;
+            &lt;span class="comments-count unread" data-tooltip="&lt;%- unread_comments_count %&gt; new comment&lt;%- unread_comments_count &gt; 1 ? 's' : '' %&gt;"&gt;&lt;%- comments_count %&gt;&lt;/span&gt;
+        &lt;% } else { %&gt;
+            &lt;span class="comments-count"&gt;&lt;%- comments_count %&gt;&lt;/span&gt;
+        &lt;% } %&gt;
+        &lt;span class="votes-count"&gt;+&lt;%- votes['up_count'] %&gt;&lt;/span&gt;
+    &lt;/a&gt;
+&lt;/script&gt;
+
+
+&lt;div class="discussion-module" data-discussion-id="600x_ps10_p3"&gt;
+    &lt;a class="discussion-show control-button" href="javascript:void(0)" data-discussion-id="600x_ps10_p3"&gt;&lt;span class="show-hide-discussion-icon"&gt;&lt;/span&gt;&lt;span class="button-text"&gt;Show Discussion&lt;/span&gt;&lt;/a&gt;
+    &lt;a href="#" class="new-post-btn"&gt;&lt;span class="new-post-icon"&gt;&lt;/span&gt;New Post&lt;/a&gt;
+    
+    
+&lt;/div&gt;
+
+&lt;/section&gt;
+
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;/section&gt;
+</div>
+  <div id="seq_content"><section class="xmodule_display xmodule_VerticalModule" data-type="None">
+    <ol class="vert-mod">
+  <li id="vert-0" data-id="i4x://MITx/6.00x/problem/ps10:Problem_1_Data_Structure">
+    <section class="xmodule_display xmodule_CapaModule" data-type="Problem">
+    <section id="problem_i4x-MITx-6_00x-problem-ps10_Problem_1_Data_Structure" class="problems-wrapper" data-problem-id="i4x://MITx/6.00x/problem/ps10:Problem_1_Data_Structure" data-url="/courses/MITx/6.00x/2012_Fall/modx/i4x://MITx/6.00x/problem/ps10:Problem_1_Data_Structure">
+<h2 class="problem-header">
+  Problem 1: Creating the Data Structure Representation
+</h2>
+
+<section class="problem">
+  <div><span><p>In this problem set, we are dealing with edges that have
+      different weights. In the figure below, the blue numbers show the
+      cost of traversing an edge in terms of total distance traveled,
+      while the green numbers show the cost of traversing an edge in
+      terms of distance spent outdoors. Note that the distance spent
+      outdoors for a single edge is always less than or equal to the
+      total distance it takes to traverse that edge. Now the cost of
+      going from "a" to "b" to "e" is a total distance traveled of 22
+      meters, where 14 of those meters are spent outdoors. These weights
+      are important when comparing multiple paths because you want to
+      look at the weights associated with the edges in the path instead
+      of just the number of edges traversed.</p><p><a href="./pset10-3_files/ps10_weightedWithContraint.2d31668013d5.gif"><img class="aligncenter size-full wp-image-1169" title="ps10_weightedWithContraint" src="./pset10-3_files/ps10_weightedWithContraint.2d31668013d5.gif" alt="" width="350" height="171"></a></p><p>In <tt>graph.py</tt>, you’ll find the <tt>Digraph</tt>,
+      <tt>Node</tt>, and <tt>Edge</tt> classes, which do not store
+      information about weights associated with each edge.</p><p>Extend the classes so that it fits our case of a weighted graph.
+      Think about how you can modify the classes to store the weights
+      shown above. Make modifications directly in <tt>graph.py</tt>.</p><div style="background-color:#FF6; padding:5px; border: 1px solid gray"><p><b>Hint:</b> subclass the provided classes to add your own
+	functionality to the new classes. Deciding what representation to
+	use in order to build up the graph is the most challenging part of
+	the problem set, so think through the problem carefully.</p></div></span></div>
+
+  <section class="action">
+    <input type="hidden" name="problem_id" value="Problem 1: Creating the Data Structure Representation">
+
+    <input class="check Check" type="button" value="Check">
+    <input class="save" type="button" value="Save">
+    <section class="submission_feedback">
+      You have used 1 of 10 submissions
+    </section>
+  </section>
+</section></section>
+
+</section>
+
+  </li>
+  <li id="vert-1" data-id="i4x://MITx/6.00x/discussion/discussion_26eea432e995">
+    <section class="xmodule_display xmodule_DiscussionModule" data-type="InlineDiscussion">
+    
+
+<script type="text/template" id="thread-template">
+    <article class="discussion-article" data-id="<%- id %>">
+        <div class="thread-content-wrapper"></div>
+        <ol class="responses">
+            <li class="loading"><div class="loading-animation"></div></li>
+        </ol>
+        <div class="post-status-closed bottom-post-status" style="display: none">
+          This thread is closed.
+        </div>
+        <form class="discussion-reply-new" data-id="<%- id %>">
+            <h4>Post a response:</h4>
+            <ul class="discussion-errors"></ul>
+            <div class="reply-body" data-id="<%- id %>"></div>
+            <div class="reply-post-control">
+                <a class="discussion-submit-post control-button" href="#">Submit</a>
+            </div>
+        </form>
+    </article>
+</script>
+
+<script type="text/template" id="thread-show-template">
+  <div class="discussion-post">
+      <div><a href="javascript:void(0)" class="dogear action-follow" data-tooltip="follow"></a></div>
+      <header>
+          <a href="#" class="vote-btn discussion-vote discussion-vote-up" data-role="discussion-vote" data-tooltip="vote"><span class="plus-icon">+</span> <span class='votes-count-number'><%- votes["up_count"] %></span></a>
+          <h1><%- title %></h1>
+          <p class="posted-details">
+              <% if (obj.username) { %>
+              <a href="<%- user_url %>" class="username"><%- username %></a>
+              <% } else {print('anonymous');} %>
+              <span class="timeago" title="<%- created_at %>"><%- created_at %></span>
+
+              <span class="post-status-closed top-post-status" style="display: none">
+                &bull; This thread is closed.
+              </span>
+          </p>
+      </header>
+
+      <div class="post-body"><%- body %></div>
+      <% if (obj.courseware_url) { %>
+      <div class="post-context">
+          (this post is about <a href="<%- courseware_url%>"><%- courseware_title %></a>)
+      </div>
+      <% } %>
+
+      <ul class="moderator-actions">
+          <li style="display: none"><a class="action-edit" href="javascript:void(0)"><span class="edit-icon"></span> Edit</a></li>
+          <li style="display: none"><a class="action-delete" href="javascript:void(0)"><span class="delete-icon"></span> Delete</a></li>
+          <li style="display: none"><a class="action-openclose" href="javascript:void(0)"><span class="edit-icon"></span> Close</a></li>
+      </ul>
+  </div>
+</script>
+
+<script type="text/template" id="thread-edit-template">
+  <div class="discussion-post edit-post-form">
+    <h1>Editing post</h1>
+    <ul class="edit-post-form-errors"></ul>
+    <div class="form-row">
+      <input type="text" class="edit-post-title" name="title" value="<%-title %>" placeholder="Title">
+    </div>
+    <div class="form-row">
+      <div class="edit-post-body" name="body"><%- body %></div>
+    </div>
+    <input type="submit" class="post-update" value="Update post">
+    <a href="#" class="post-cancel">Cancel</a>
+  </div>
+</script>
+
+<script type="text/template" id="thread-response-template">
+    <div class="discussion-response"></div>
+    <ol class="comments">
+        <li class="new-comment response-local">
+            <form class="comment-form" data-id="<%- wmdId %>">
+                <ul class="discussion-errors"></ul>
+                <div class="comment-body" data-id="<%- wmdId %>"
+                data-placeholder="Add a comment..."></div>
+                <div class="comment-post-control">
+                    <a class="discussion-submit-comment control-button" href="#">Submit</a>
+                </div>
+            </form>
+        </li>
+    </ol>
+</script>
+
+<script type="text/template" id="thread-response-show-template">
+    <header class="response-local">
+        <a href="javascript:void(0)" class="vote-btn" data-tooltip="vote"><span class="plus-icon"></span><span class="votes-count-number"><%- votes['up_count'] %></span></a>
+        <a href="javascript:void(0)" class="endorse-btn<% if (endorsed) { %> is-endorsed<% } %> action-endorse" style="cursor: default; display: none;" data-tooltip="endorse"><span class="check-icon" style="pointer-events: none; "></span></a>
+        <% if (obj.username) { %>
+        <a href="<%- user_url %>" class="posted-by"><%- username %></a>
+        <% } else {print('<span class="anonymous"><em>anonymous</em></span>');} %>
+        <p class="posted-details" title="<%- created_at %>"><%- created_at %></p>
+    </header>
+    <div class="response-local"><div class="response-body"><%- body %></div></div>
+    <ul class="moderator-actions response-local">
+        <li style="display: none"><a class="action-edit" href="javascript:void(0)"><span class="edit-icon"></span> Edit</a></li>
+        <li style="display: none"><a class="action-delete" href="javascript:void(0)"><span class="delete-icon"></span> Delete</a></li>
+        <li style="display: none"><a class="action-openclose" href="javascript:void(0)"><span class="edit-icon"></span> Close</a></li>
+    </ul>
+</script>
+
+<script type="text/template" id="thread-response-edit-template">
+  <div class="edit-post-form">
+    <h1>Editing response</h1>
+    <ul class="edit-post-form-errors"></ul>
+    <div class="form-row">
+      <div class="edit-post-body" name="body"><%- body %></div>
+    </div>
+    <input type="submit" class="post-update" value="Update response">
+    <a href="#" class="post-cancel">Cancel</a>
+  </div>
+</script>
+
+<script type="text/template" id="response-comment-show-template">
+  <div id="comment_<%- id %>">
+    <div class="response-body"><%- body %></div>
+    <p class="posted-details">&ndash;posted <span class="timeago" title="<%- created_at %>"><%- created_at %></span> by
+        <% if (obj.username) { %>
+        <a href="<%- user_url %>" class="profile-link"><%- username %></a>
+        <% } else {print('anonymous');} %>
+    </p>
+  </div>
+</script>
+
+<script type="text/template" id="thread-list-item-template">
+    <a href="<%- id %>" data-id="<%- id %>">
+        <span class="title"><%- title %></span>
+        <% if (unread_comments_count > 0) { %>
+            <span class="comments-count unread" data-tooltip="<%- unread_comments_count %> new comment<%- unread_comments_count > 1 ? 's' : '' %>"><%- comments_count %></span>
+        <% } else { %>
+            <span class="comments-count"><%- comments_count %></span>
+        <% } %>
+        <span class="votes-count">+<%- votes['up_count'] %></span>
+    </a>
+</script>
+
+
+<div class="discussion-module" data-discussion-id="600x_ps10_p1">
+    <a class="discussion-show control-button" href="javascript:void(0)" data-discussion-id="600x_ps10_p1"><span class="show-hide-discussion-icon"></span><span class="button-text">Show Discussion</span></a>
+    <a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#" class="new-post-btn"><span class="new-post-icon"></span>New Post</a>
+    
+    
+</div>
+
+</section>
+
+  </li>
+</ol>
+
+</section>
+</div>
+
+  <nav class="sequence-bottom">
+    <ul aria-label="Section Navigation" class="sequence-nav-buttons">
+      <li class="prev"><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#" class="">Previous</a></li>
+      <li class="next"><a href="https://www.edx.org/courses/MITx/6.00x/2012_Fall/courseware/Week_12/Problem_Set_10/#">Next</a></li>
+    </ul>
+  </nav>
+</div>
+
+
+
+<script type="text/javascript">
+  var sequenceNav;
+  $(document).ready(function() {
+    sequenceNav = new SequenceNav($('.sequence-nav'));
+  });
+</script>
+
+</section>
+
+    </section>
+  </div>
+</section>
+
+
+
+    
+  </section>
+
+  
+
+
+<footer>
+  <nav>
+    <section class="top">
+      <section class="primary">
+        <a href="https://www.edx.org/" class="logo"></a>
+        <a href="https://www.edx.org/courses">Find Courses</a>
+        <a href="https://www.edx.org/about">About</a>
+        <a href="http://blog.edx.org/">Blog</a>
+        <a href="https://www.edx.org/jobs">Jobs</a>
+        <a href="https://www.edx.org/contact">Contact</a>
+      </section>
+
+      <section class="social">
+        <a href="http://youtube.com/user/edxonline"><img src="./pset10-3_files/youtube-sharing.849d8165b998.png"></a>
+        <a href="https://plus.google.com/108235383044095082735"><img src="./pset10-3_files/google-plus-sharing.947c2e39edb9.png"></a>
+        <a href="http://www.facebook.com/EdxOnline"><img src="./pset10-3_files/facebook-sharing.ef6d12f8c0ab.png"></a>
+        <a href="https://twitter.com/edXOnline"><img src="./pset10-3_files/twitter-sharing.b637ddbd06cb.png"></a>
+      </section>
+    </section>
+
+    <section class="bottom">
+      <section class="copyright">
+        <p>© 2012 edX, some rights reserved.</p>
+      </section>
+
+      <section class="secondary">
+        <a href="https://www.edx.org/tos">Terms of Service</a>
+        <a href="https://www.edx.org/privacy">Privacy Policy</a>
+        <a href="https://www.edx.org/honor">Honor Code</a>
+        <a href="https://www.edx.org/help">Help</a>
+      </section>
+    </section>
+
+  </nav>
+</footer>
+
+
+  
+    <script type="text/javascript" src="./pset10-3_files/lms-application.a9911d45830f.js" charset="utf-8"></script>
+
+
+  
+    <script type="text/javascript" src="./pset10-3_files/lms-modules.9402046b54b3.js" charset="utf-8"></script>
+
+
+
+  
+  <script type="text/javascript" src="./pset10-3_files/jquery.scrollTo-1.4.2-min.4aa3e2dfa312.js"></script>
+  <script type="text/javascript" src="./pset10-3_files/jquery.flot.d3d45ff0c6a8.js"></script>
+
+  <script type="text/javascript" src="./pset10-3_files/codemirror-compressed.8d10b119ed94.js"></script>
+
+
+
+  
+    <script type="text/javascript" src="./pset10-3_files/lms-courseware.9e30e8397475.js" charset="utf-8"></script>
+
+
+  
+    <script type="text/javascript" src="./pset10-3_files/discussion.d41d8cd98f00.js" charset="utf-8"></script>
+
+
+
+  
+
+
+
+<script type="text/x-mathjax-config;executed=true">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [
+        ["\\(","\\)"],
+        ['[mathjaxinline]','[/mathjaxinline]']
+      ],
+      displayMath: [
+        ["\\[","\\]"],
+        ['[mathjax]','[/mathjax]']
+      ]
+    }
+  });
+</script>
+
+<!-- This must appear after all mathjax-config blocks, so it is after the imports from the other templates.
+     It can't be run through static.url because MathJax uses crazy url introspection to do lazy loading of
+     MathJax extension libraries -->
+<script type="text/javascript" src="./pset10-3_files/MathJax.js"></script>
+
+<script type="text/template" id="_inline_thread"><article class="discussion-article" data-id="{{id}}">
+
+    <div class="thread-content-wrapper"></div>
+
+    <ol class="responses post-extended-content">
+        <li class="loading"><div class="loading-animation"></div></li>
+    </ol>
+    <form class="local discussion-reply-new post-extended-content"  data-id="{{id}}">
+        <h4>Post a response:</h4>
+        <ul class="discussion-errors"></ul>
+        <div class="reply-body" data-id="{{id}}"></div>
+        <div class="reply-post-control">
+            <a class="discussion-submit-post control-button" href="#">Submit</a>
+        </div>
+    </form>
+
+    <div class="local post-tools">
+        <a href="javascript:void(0)" class="expand-post">View discussion</a>
+        <a href="javascript:void(0)" class="collapse-post">Hide discussion</a>
+    </div>
+
+</article></script>
+<script type="text/template" id="_content"><div class="discussion-content local{{#content.roles}} role-{{name}}{{/content.roles}}">
+  <div class="discussion-content-wrapper">
+    <div class="discussion-votes">
+      <a class="discussion-vote discussion-vote-up" href="javascript:void(0)" value="up">&#9650;</a>
+      <div class="discussion-votes-point">{{content.votes.point}}</div>
+      <a class="discussion-vote discussion-vote-down" href="javascript:void(0)" value="down">&#9660;</a>
+    </div>
+    <div class="discussion-right-wrapper">
+      <ul class="admin-actions">
+        <li style="display: none;"><a href="javascript:void(0)" class="admin-endorse">Endorse</a></li>
+        <li style="display: none;"><a href="javascript:void(0)" class="admin-edit">Edit</a></li>
+        <li style="display: none;"><a href="javascript:void(0)" class="admin-delete">Delete</a></li>
+        {{#thread}}
+          <li style="display: none;"><a href="javascript:void(0)" class="admin-openclose">{{close_thread_text}}</a></li>
+        {{/thread}}
+      </ul>
+      {{#thread}}
+        <a class="thread-title" name="{{content.id}}" href="javascript:void(0)">{{content.displayed_title}}</a>
+      {{/thread}}
+      <div class="discussion-content-view">
+        <a name="{{content.id}}" style="width: 0; height: 0; padding: 0; border: none;"></a>
+        <div class="content-body {{content.type}}-body" id="content-body-{{content.id}}">{{content.displayed_body}}</div>
+        {{#thread}}
+          <div class="thread-tags">
+            {{#content.tags}}
+              <a class="thread-tag" href="{{##url_for_tags}}{{.}}{{/url_for_tags}}">{{.}}</a>
+            {{/content.tags}}
+          </div>
+        {{/thread}}
+        <div class="context">
+            {{#content.courseware_location}}
+               (this post is about <a href="../../jump_to/{{content.courseware_location}}">{{content.courseware_title}}</a>)
+            {{/content.courseware_location}}
+        </div>
+        <div class="info">
+          <div class="comment-time">
+            {{#content.updated}}
+              updated
+            {{/content.updated}}
+            <span class="timeago" title="{{content.updated_at}}">{{content.created_at}}</span> by
+            {{#content.anonymous}}
+              anonymous
+            {{/content.anonymous}}
+            {{^content.anonymous}}
+              <a href="{{##url_for_user}}{{content.user_id}}{{/url_for_user}}" class="{{#content.roles}}author-{{name}} {{/content.roles}}">{{content.username}}</a>
+            {{/content.anonymous}}
+          </div>
+          <div class="show-comments-wrapper">
+            {{#thread}}
+              {{#partial_comments}}
+                <a href="javascript:void(0)" class="discussion-show-comments first-time">Show all comments (<span class="comments-count">{{content.comments_count}}</span> total)</a>
+              {{/partial_comments}}
+              {{^partial_comments}}
+                <a href="javascript:void(0)" class="discussion-show-comments">Show <span class="comments-count">{{content.comments_count}}</span> {{##pluralize}}{{content.comments_count}} comment{{/pluralize}}</a>
+              {{/partial_comments}}
+            {{/thread}}
+          </div>
+          <ul class="discussion-actions">
+            {{^max_depth}}
+              <li><a class="discussion-link discussion-reply discussion-reply-{{content.type}}" href="javascript:void(0)">Reply</a></li>
+            {{/max_depth}}
+            {{#thread}}
+              <li><div class="follow-wrapper"><a class="discussion-link discussion-follow-thread" href="javascript:void(0)">Follow</a></div></li>
+            {{/thread}}
+            <li><a class="discussion-link discussion-permanent-link" href="{{content.permalink}}">Permanent Link</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</script>
+<script type="text/template" id="_inline_discussion"><section class="discussion" data-discussion-id="{{discussionId}}">
+    
+
+    <article class="new-post-article">
+        <span class="topic"  data-discussion-id="{{discussionId}}" />
+        <div class="inner-wrapper">
+            <div class="new-post-form-errors">
+            </div>
+            <form class="new-post-form">
+                <div class="form-row">
+                    <input type="text" class="new-post-title" name="title" placeholder="Title">
+                </div>
+                <div class="form-row">
+                    <div class="new-post-body" name="body" placeholder="Enter your question or comment&hellip;"></div>
+                    <!---<div class="new-post-preview"><span class="new-post-preview-label">Preview</span></div>-->
+                </div>
+                {{! TODO tags: Getting rid of tags for now. }}
+                {{!<div class="form-row">}}
+                {{!    <input type="text" class="new-post-tags" name="tags" placeholder="Tags">}}
+                {{!</div>}}
+                <input type="submit" class="submit" value="Add post">
+                <a href="#" class="new-post-cancel">Cancel</a>
+                <div class="options">
+                    <input type="checkbox" name="follow" class="discussion-follow" class="discussion-follow" id="new-post-follow" checked><label for="new-post-follow">follow this post</label>
+                    <br>
+                    {{#allow_anonymous}}
+                        <input type="checkbox" name="anonymous" class="discussion-anonymous" id="new-post-anonymous"><label for="new-post-anonymous">post anonymously</label>
+                    {{/allow_anonymous}}
+                    {{#allow_anonymous_to_peers}}
+                        <input type="checkbox" name="anonymous" class="discussion-anonymous-to-peers" id="new-post-anonymous-to-peers"><label for="new-post-anonymous-to-peers">post anonymously to classmates</label>
+                    {{/allow_anonymous_to_peers}}
+                </div>
+            </form>
+        </div>
+    </article>
+
+    <section class="threads">
+        {{#threads}}
+            <article class="discussion-thread" id="thread_{{id}}">
+            </article>
+        {{/threads}}
+    </section>
+
+    <section class="pagination">
+    </section>
+</section>
+</script>
+<script type="text/template" id="_reply"><form class="discussion-reply-new">
+  <ul class="discussion-errors"></ul>
+  <div class="reply-body"></div>
+  <input type="checkbox" class="discussion-post-anonymously" id="discussion-post-anonymously-{{id}}" />
+  <label for="discussion-post-anonymously-{{id}}">post anonymously</label>
+  {{#showWatchCheckbox}}
+  <input type="checkbox" class="discussion-auto-watch" id="discussion-autowatch-{{id}}" checked />
+  <label for="discussion-auto-watch-{{id}}">follow this thread</label>
+  {{/showWatchCheckbox}}
+  <br />
+  <div class="reply-post-control">
+    <a class="discussion-cancel-post" href="javascript:void(0)">Cancel</a>
+    <a class="discussion-submit-post control-button" href="javascript:void(0)">Submit</a>
+  </div>
+</form>
+</script>
+<script type="text/template" id="_profile_thread"><article class="discussion-article" data-id="{{id}}">
+    <div class="local"><a href="javascript:void(0)" class="dogear action-follow"></a></div>
+    <div class="discussion-post local">
+        <header>
+            <a href="#" class="vote-btn discussion-vote discussion-vote-up" data-role="discussion-vote"><span class="plus-icon">+</span> <span class='votes-count-number'>{{votes.up_count}}</span></a>
+            <h3>{{title}}</h3>
+            <p class="posted-details">                
+                {{#user}}
+                <a href="{{user_url}}" class="username">{{username}}</a>
+                {{/user}}
+                {{^user}}
+                anonymous
+                {{/user}}
+
+                <span class="timeago" title="{{created_at}}">{{created_at}}</span>
+                <span class="post-status-closed top-post-status" style="display: none">
+                    &bull; This thread is closed.
+                </span>
+            </p>
+        </header>
+        <div class="post-body">{{abbreviatedBody}}</div>
+    </div>
+    <ol class="responses post-extended-content">
+        <li class="loading"></li>
+    </ol>
+
+    <div class="local post-tools">
+        <a href="{{permalink}}">View discussion</a>
+        <!-- <a href="javascript:void(0)" class="collapse-post">Hide discussion</a> -->
+    </div>
+
+</article>
+</script>
+<script type="text/template" id="_edit_comment"><form class="discussion-content-edit discussion-comment-edit" _id="{{id}}">
+  <ul class="discussion-errors discussion-update-errors"></ul>    
+  <div class="comment-body-edit body-input">{{body}}</div>
+  <div class = "edit-post-control">
+    <a class="discussion-cancel-update" href="javascript:void(0)">Cancel</a>
+    <a class="discussion-submit-update control-button" href="javascript:void(0)">Update</a>
+  </div>
+</form>
+</script>
+<script type="text/template" id="_edit_thread"><form class="discussion-content-edit discussion-thread-edit" _id="{{id}}">
+  <ul class="discussion-errors discussion-update-errors"></ul>    
+  <input type="text" class="thread-title-edit title-input" placeholder="Title" value="{{title}}"/>
+  <div class="thread-body-edit body-input">{{body}}</div>
+  <input class="thread-tags-edit" placeholder="Tags" value="{{tags}}" />
+  <div class = "edit-post-control">
+    <a class="discussion-cancel-update" href="javascript:void(0)">Cancel</a>
+    <a class="discussion-submit-update control-button" href="javascript:void(0)">Update</a>
+  </div>
+</form>
+</script>
+<script type="text/template" id="_user_profile"><section class="discussion-user-threads" >
+    <section class="discussion">
+            {{#threads}}
+                <article class="discussion-thread" id="thread_{{id}}">
+                </article>
+            {{/threads}}
+    </div>
+    <section class="pagination">
+    </section>
+</section>
+</script>
+<script type="text/template" id="_pagination"><nav class="discussion-{{discussiontype}}-paginator discussion-paginator local">
+    <ol>
+        {{#previous}}
+        <li><a class="discussion-pagination" href="{{url}}" data-page-number="{{number}}">&lt; Previous</a></li>
+        {{/previous}}
+        {{#first}}
+        <li><a class="discussion-pagination" href="{{url}}" data-page-number="1">1</a></li>
+        {{/first}}
+        {{#leftdots}}
+        <li>&hellip;</li>
+        {{/leftdots}}
+
+        {{#lowPages}}
+        <li><a class="discussion-pagination" href="{{url}}" data-page-number="{{number}}">{{number}}</a></li>
+        {{/lowPages}}
+        <li class="current-page">{{page}}</li>
+        {{#highPages}}
+        <li><a class="discussion-pagination" href="{{url}}" data-page-number="{{number}}">{{number}}</a></li>
+        {{/highPages}}
+
+        {{#rightdots}}
+        <li>&hellip;</li>
+        {{/rightdots}}
+        {{#last}}
+        <li><a class="discussion-pagination" href="{{url}}" data-page-number="{{number}}">{{number}}</a></li>
+        {{/last}}
+        {{#next}}
+        <li><a class="discussion-pagination" href="{{url}}" data-page-number="{{number}}">Next &gt;</a></li>
+        {{/next}}
+    </ol>
+</nav>
+
+</script>
+<script type="text/template" id="_new_post"><form class="new-post-form collapsed" id="new-post-form" style="display: block; ">
+  <ul class="new-post-form-errors discussion-errors"></ul>
+  <input type="text" class="new-post-title title-input" placeholder="Title" />
+  <div class="new-post-similar-posts-wrapper" style="display: none"></div>
+  <div class="new-post-body reply-body"></div>
+  {{! TODO tags: Getting rid of tags for now. }}
+  {{! <input class="new-post-tags" placeholder="Tags" /> }}
+  <div class="post-options">
+    <input type="checkbox" class="discussion-post-anonymously" id="discussion-post-anonymously-${discussion_id}">
+    <label for="discussion-post-anonymously-${discussion_id}">post anonymously</label>
+    <input type="checkbox" class="discussion-auto-watch" id="discussion-autowatch-${discussion_id}" checked="">
+    <label for="discussion-auto-watch-${discussion_id}">follow this thread</label>
+  </div>
+  <div class="new-post-control post-control">        
+    <a class="discussion-cancel-post" href="javascript:void(0)">Cancel</a>
+    <a class="discussion-submit-post control-button" href="javascript:void(0)">Submit</a>
+  </div>
+</form>
+</script>
+<script type="text/template" id="_inline_thread_show"><div class="discussion-post local">
+    <div><a href="javascript:void(0)" class="dogear action-follow" data-tooltip="follow"></a></div>
+    <header>
+        <a href="#" class="vote-btn discussion-vote discussion-vote-up" data-role="discussion-vote" data-tooltip="vote"><span class="plus-icon">+</span> <span class='votes-count-number'>{{votes.up_count}}</span></a>
+        <h3>{{title}}</h3>
+        <p class="posted-details">
+            {{#user}}
+            <a href="{{user_url}}" class="username">{{username}}</a>
+            {{/user}}
+            {{^user}}
+            anonymous
+            {{/user}}
+
+            <span class="timeago" title="{{created_at}}">{{created_at}}</span>
+
+            <span class="post-status-closed top-post-status" style="display: none">
+                &bull; This thread is closed.
+            </span>
+        </p>
+    </header>
+    <div class="post-body">{{abbreviatedBody}}</div>
+
+    <ul class="moderator-actions post-extended-content">
+        <li style="display: none"><a class="action-edit" href="javascript:void(0)"><span class="edit-icon"></span> Edit</a></li>
+        <li style="display: none"><a class="action-delete" href="javascript:void(0)"><span class="delete-icon"></span> Delete</a></li>
+        <li style="display: none"><a class="action-openclose" href="javascript:void(0)"><span class="edit-icon"></span> Close</a></li>
+    </ul>
+</div>
+</script>
+
+
+  <!-- TODO: http://docs.jquery.com/Plugins/Validation -->
+  <script type="text/javascript">
+    document.write('\x3Cscript type="text/javascript" src="' +
+        document.location.protocol + '//www.youtube.com/player_api">\x3C/script>');
+  </script><script type="text/javascript" src="./pset10-3_files/player_api"></script>
+
+  <script type="text/javascript">
+    var $$course_id = "MITx/6.00x/2012_Fall";
+
+    $(function(){
+        $(".ui-accordion-header a, .ui-accordion-content .subtitle").each(function() {
+          var elemText = $(this).text().replace(/^\s+|\s+$/g,''); // Strip leading and trailing whitespace
+          var wordArray = elemText.split(" ");
+          var finalTitle = "";
+          if (wordArray.length > 0) {
+            for (i=0;i<=wordArray.length-1;i++) {
+              finalTitle += wordArray[i];
+              if (i == (wordArray.length-2)) {
+                finalTitle += "&nbsp;";
+              } else if (i == (wordArray.length-1)) {
+                // Do nothing
+              } else {
+                finalTitle += " ";
+              }
+            }
+          }
+          $(this).html(finalTitle);
+        });
+      });
+  </script>
+
+<script type="text/javascript">if(!NREUMQ.f){NREUMQ.f=function(){NREUMQ.push(["load",new Date().getTime()]);var e=document.createElement("script");e.type="text/javascript";e.src=(("http:"===document.location.protocol)?"http:":"https:")+"//"+"d1ros97qkrwjf5.cloudfront.net/42/eum/rum.js";document.body.appendChild(e);if(NREUMQ.a)NREUMQ.a();};NREUMQ.a=window.onload;window.onload=NREUMQ.f;};NREUMQ.push(["nrfj","beacon-1.newrelic.com","1beac94c95","618728","NQQGYUZWDUNSVUMPWQxOIkBaVBdZXFgYBVkXExdQQ1YRVR1AXgNBEVsNW1BSGw==",0,1506,new Date().getTime(),"17337482138479837113","2a45b467c94abebe","","",""]);</script>
+
+<div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: MathJax_Size1, sans-serif;"></div><script type="text/javascript" src="./pset10-3_files/rum.js"></script><script type="text/javascript" src="./pset10-3_files/1beac94c95"></script></body><style type="text/css"></style></html>
